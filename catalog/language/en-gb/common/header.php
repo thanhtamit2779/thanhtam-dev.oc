@@ -14,3 +14,33 @@ $_['text_logout']        = 'Logout';
 $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'Show All';
+$_['text_contact_us']   = 'Contact Us';
+
+// MENU TOP LINK
+$_['text_menu']     = array(
+    array(
+        'link' => '/',
+        'icon' => '',
+        'name' => 'home'
+    ),
+    array(
+        'link' => '/gioi-thieu',
+        'icon' => '',
+        'name' => 'about'
+    ),
+    array(
+        'link' => '/lien-he',
+        'icon' => '',
+        'name' => 'contact us'
+    ),
+    array(
+        'link' => '/tin-tuc',
+        'icon' => '',
+        'name' => 'news'
+    ),
+    array(
+        'link' => '/san-pham',
+        'icon' => '',
+        'name' => 'product'
+    ),
+) ;

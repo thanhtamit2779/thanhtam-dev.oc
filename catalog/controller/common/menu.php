@@ -10,8 +10,19 @@ class ControllerCommonMenu extends Controller {
 
 		$data['categories'] = array();
 
-		$categories = $this->model_catalog_category->getCategories(0);
+		// TẠO FILE CACHE ĐỂ LOAD DỮ LIỆU NHANH NHẤT
+		$categories = $this->cache->get('catalog.common.menu');
+		
+		// CHƯA CÓ FILE CACHE : TẠO FILE CACHE
+		if( ! $categories ) {
+			$get_categories = $this->model_catalog_category->getCategories(0);
+			if(empty($get_categories)) return FALSE ;
+			$this->cache->set('catalog.common.menu', $get_categories);
+			$categories = $this->cache->get('catalog.common.menu'); 
+		}
 
+		if( empty($categories)) return FALSE ;
+		
 		foreach ($categories as $category) {
 			if ($category['top']) {
 				// Level 2
@@ -40,7 +51,6 @@ class ControllerCommonMenu extends Controller {
 				);
 			}
 		}
-
 		return $this->load->view('common/menu', $data);
 	}
 }

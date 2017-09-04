@@ -22,3 +22,33 @@ $_['text_checkout'] = 'Thanh toán';
 $_['text_language'] = 'Ngôn ngữ';
 $_['text_currency'] = 'Tiền tệ';
 $_['text_all']           = 'Xem tất cả';
+$_['text_contact_us']   = 'Liên hệ';
+
+// MENU TOP LINK
+$_['text_menu']     = array(
+    array(
+        'link' => '/',
+        'icon' => '',
+        'name' => 'trang chủ'
+    ),
+    array(
+        'link' => '/gioi-thieu',
+        'icon' => '',
+        'name' => 'giới thiệu'
+    ),
+    array(
+        'link' => '/lien-he',
+        'icon' => '',
+        'name' => 'liên hệ'
+    ),
+    array(
+        'link' => '/tin-tuc',
+        'icon' => '',
+        'name' => 'tin tức'
+    ),
+    array(
+        'link' => '/san-pham',
+        'icon' => '',
+        'name' => 'sản phẩm'
+    ),
+) ;
