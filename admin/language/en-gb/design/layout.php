@@ -16,6 +16,9 @@ $_['text_content_bottom'] = 'Content Bottom';
 $_['text_column_left']    = 'Column Left';
 $_['text_column_right']   = 'Column Right';
 
+// TẠO VỊ TRÍ MỚI CHO OPENCART
+$_['text_custom_slider']   = 'Slider';
+
 // Column
 $_['column_name']         = 'Layout Name';
 $_['column_action']       = 'Action';
