@@ -11,6 +11,9 @@ class ControllerCommonSearch extends Controller {
 			$data['search'] = '';
 		}
 
+		$categories 			= $this->cache->get('catalog.common.menu');
+		$data['$categories']	= $categories ;
+
 		return $this->load->view('common/search', $data);
 	}
 }
