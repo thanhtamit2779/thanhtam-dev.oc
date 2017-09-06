@@ -1,18 +1,23 @@
 <?php
 class ControllerExtensionModuleSlideshow extends Controller {
 	public function index($setting) {
-		static $module = 0;		
-
+		static $module = 0;	
+		
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
-		$this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js');
-		
 		$data['banners'] = array();
+		$data['width'] = $setting['width'] ;
+		$data['height'] = $setting['height'] ;
 
-		$results = $this->model_design_banner->getBanner($setting['banner_id']);
+		// CACHE FILE: SYSTEM/STORAGE/CACHE
+		$results = $this->cache->get('catalog.extension.module.slideshow');
+		if(! $results ) {
+			$set_sliders = $this->model_design_banner->getBanner($setting['banner_id']);
+			if( empty($set_sliders)) return FALSE ;
+			$this->cache->set('catalog.extension.module.slideshow', $set_sliders);
+			$results = $this->cache->get('catalog.extension.module.slideshow');
+		}
 
 		foreach ($results as $result) {
 			if (is_file(DIR_IMAGE . $result['image'])) {
