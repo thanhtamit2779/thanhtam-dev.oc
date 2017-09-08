@@ -1,18 +1,43 @@
+{# HEADER #}
 {{ header }}
 
-<!-- SLIDER -->
-{{ slider }}
+{# SLIDER #}
+{% if slider %}
+  {{ slider }}
+{% endif %}
 
-<div id="common-home" class="container">
-  <div class="row">{{ column_left }}
+{# BANNER #}
+{% if banner %}
+  {{ banner }}
+{% endif %}
+
+<main class="middle">
+  <div class="container">
+    <div class="row">
+    
+    {# COLUMN LEFT #}
+    {{ column_left }}
     {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
+      {% set class = 'col-sm-6' %}
     {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
+      {% set class = 'col-sm-9' %}
     {% else %}
-    {% set class = 'col-sm-12' %}
+      {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
-    {{ column_right }}</div>
-</div>
+
+    {# CONTENT : CONTENT TOP + CONTENT RIGHT #}
+    <div id="content" class="{{ class }}">
+        {# CONTENT TOP #}
+        {{ content_top }}
+
+        {# CONTENT BOTTOM #}
+        {{ content_bottom }}
+    </div>
+    
+    {# COLUMN RIGHT #}
+    {{ column_right }}
+    </div>
+  </div>
+</main>
+{# FOOTER #}
 {{ footer }}

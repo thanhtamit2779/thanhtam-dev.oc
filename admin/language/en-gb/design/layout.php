@@ -18,6 +18,7 @@ $_['text_column_right']   = 'Column Right';
 
 // TẠO VỊ TRÍ MỚI CHO OPENCART
 $_['text_custom_slider']   = 'Slider';
+$_['text_custom_banner']   = 'Banner';
 
 // Column
 $_['column_name']         = 'Layout Name';

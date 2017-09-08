@@ -459,6 +459,80 @@ html, body {
 
 /* 
 * ---------------------------------------------------------------
+* BANNER
+* ---------------------------------------------------------------
+*/
+.banner-main {
+	background:rgba(255,255,255,255) ;
+	padding: 25px 0px;
+	overflow: hidden;
+}
+
+.custom-banner {
+	position: relative;
+	min-height: 250px;
+	text-align: center;
+    overflow: hidden;
+}
+
+.custom-banner:hover {
+	cursor: pointer;
+}
+
+.custom-banner:hover p.custom-banner-content{
+	opacity: 1 !important;
+}
+
+.custom-banner:before,
+.custom-banner:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 139, 202, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: scaleX(0);
+	transition: all 0.6s ease 0s;	
+}
+.custom-banner:after{ transform: scaleY(0); }
+.custom-banner:hover:before{ transform: scaleX(1); opacity: 0.5;}
+.custom-banner:hover:after{ transform: scaleY(1); opacity: 0.5;}
+
+.custom-banner img.banner-image {
+	width: 100%;
+    height: auto;
+	transition: all 0.5s ease 0s;
+	opacity: 1;
+}
+
+p.custom-banner-content {
+    overflow: hidden;
+    white-space: nowrap;
+}
+a.custom-banner-title {
+	display: block;
+	color: #ff3366;
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    background: rgba(254,254,255,0.6);
+    width: 100%;
+    padding: 15px 0px;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+a.custom-banner-title:hover {
+	cursor: pointer;
+}
+
+
+/* 
+* ---------------------------------------------------------------
 * Main
 * ---------------------------------------------------------------
 */

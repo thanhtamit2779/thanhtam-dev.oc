@@ -14,8 +14,11 @@ class ControllerCommonHome extends Controller {
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
+		$data['header'] = $this->load->controller('common/header');		
+
+		// THÊM VỊ TRÍ MỚI
 		$data['slider'] = $this->load->controller('common/custom_slider');
+		$data['banner'] = $this->load->controller('common/custom_banner');
 		$this->response->setOutput($this->load->view('common/home', $data), FALSE);
 	}
 }
