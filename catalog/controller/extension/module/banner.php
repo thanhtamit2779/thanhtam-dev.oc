@@ -10,7 +10,7 @@ class ControllerExtensionModuleBanner extends Controller {
 
 		// TRUYỀN VỊ TRÍ NGOÀI VIEW		
 		if( !empty($setting['position']) ) {
-			$data['position'] = 'custom_banner';
+			$data['position'] = $setting['position'];
 		}
 
 		$results = $this->model_design_banner->getBanner($setting['banner_id']);

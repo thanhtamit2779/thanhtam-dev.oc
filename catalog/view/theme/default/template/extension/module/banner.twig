@@ -1,24 +1,25 @@
-{{ custom_banner }}
 {% if banners %}
-    {% for banner in banners %}
-
       {# VỊ TRÍ CUSTOM_BANNER #}
       {% if position == 'custom_banner' %}
-        <div class="col-md-4 col-sm-6">
-          <div class="custom-banner box-{{ module }} vertical-center">
-              <img alt="{{ banner.title }}" class="img-responsive banner-image" src="{{ banner.image }}" />
-              <p class="custom-banner-content">
-                  <a class="custom-banner-title" href="{{ banner.link }}" title="{{ banner.title }}">{{ banner.title }}</a>
-              </p>
+        {% for banner in banners %}
+          <div class="col-md-4 col-sm-6">
+            <div class="custom-banner box-{{ module }} vertical-center">
+                <img alt="{{ banner.title }}" class="img-responsive banner-image" src="{{ banner.image }}" />
+                <p class="custom-banner-content">
+                    <a class="custom-banner-title" href="{{ banner.link }}" title="{{ banner.title }}">{{ banner.title }}</a>
+                </p>
+            </div>
           </div>
-        </div>
-
-      {# VỊ TRÍ CONTENT_TOP #}
-      {% elseif position == 'content_top' %}
-
+        {% endfor %}  
+      
+      {# VỊ TRÍ CONTENT_TOP - CONTENT_BOTTOM #}
+      {% elseif position == 'content_top' OR position == 'content_bottom' %}
+          <h1>content_top - content_bottom</h1>
       {% endif %}
 
-      {# MẶC ĐỊNH #}
+      {# VỊ TRÍ COLUMN_LEFT - COLUMN_RIGHT #}
+      {% elseif position == 'column_left' OR position == 'column_right' %}
+          <h1>column_left - column_right</h1>
+      {% endif %}
 
-    {% endfor %}  
 {% endif %}
