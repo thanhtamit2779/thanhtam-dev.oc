@@ -58,6 +58,9 @@ class ControllerCommonContentTop extends Controller {
 
 			if (isset($part[1])) {
 				$setting_info = $this->model_setting_module->getModule($part[1]);
+				
+				// TRUYỀN BIẾN VỊ TRÍ : MODULE RENDER VIEW VỚI HTML KHÁC NHAU
+				$setting_info['position'] = 'content_top';
 
 				if ($setting_info && $setting_info['status']) {
 					$output = $this->load->controller('extension/module/' . $part[0], $setting_info);
