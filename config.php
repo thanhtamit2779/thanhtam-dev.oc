@@ -12,6 +12,7 @@ define('DIR_IMAGE', 'C:/xampp/htdocs/thanhtam-dev.oc/image/');
 define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
+define('DIR_PRODUCT_TEMPLATE', DIR_TEMPLATE . 'default/template/common/product/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
 define('DIR_CACHE', DIR_STORAGE . 'cache/');
 define('DIR_DOWNLOAD', DIR_STORAGE . 'download/');
