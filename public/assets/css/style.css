@@ -34,11 +34,13 @@ html, body {
     -moz-print-color-adjust: exact;
 }
 
+/* METRO */
 .metro {
 	border-radius: 0px;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
 }
+
 
 .vertical-center {
 	display: -webkit-flex;
@@ -433,7 +435,7 @@ html, body {
 
 /* 
 * ---------------------------------------------------------------
-* Slider
+* SLIDER
 * ---------------------------------------------------------------
 */	 
 .slider {
@@ -533,7 +535,7 @@ a.custom-banner-title:hover {
 
 /* 
 * ---------------------------------------------------------------
-* Main
+* MAIN
 * ---------------------------------------------------------------
 */
 	.middle {
@@ -551,7 +553,9 @@ a.custom-banner-title:hover {
 		padding: 20px 35px ;
 	}
 	
-	.box {}
+	.box {
+		overflow: hidden;
+	}
 	
 	.box-heading {
 		display:block;
@@ -611,9 +615,77 @@ a.custom-banner-title:hover {
 		padding:20px;
 	}
 
+	/* 
+	* ---------------------------------------------------------------
+	* PRODUCT TAB
+	* ---------------------------------------------------------------
+	*/
+	.product-tabs {
+		display: inline;
+		width: 100%;
+	}
+
+	.product-tabs .product-tab {
+		display: inline;
+	}
+
+	.product-tabs .product-tab .tab-content > .tab-pane:not(.active),
+	.product-tabs .product-tab .pill-content > .pill-pane:not(.active) {
+		display: block;
+		height: 0;
+		overflow-y: hidden;
+	}
+
+	.product-tabs .product-tab{
+		position: relative;
+	}
+
+	.product-tabs .tab-content{
+		
+	}
+
+	.nav-product-tabs {
+		border-bottom: 3px solid #339966;
+		margin: 0;
+	}
+	
+	.nav-product-tabs li {
+		height: 100%;
+	}
+
+	.nav-product-tabs li.active, .nav-product-tabs li:hover, .nav-product-tabs li:active, .nav-product-tabs li:focus {
+		margin-bottom:-3px;
+		border-bottom: 3px solid #ff3366 !important;
+	}
+	.nav-product-tabs li a {
+		font-size: 16px;
+		text-transform: uppercase;
+		color: #333;
+		font-weight: bold;
+		display: inline-block;
+		padding: 6px 0px;
+	}
+
+	.slick-arrow {
+
+	}
+
+	.slick-prev {
+		left:96% !important;
+	}
+
+	.slick-prev, .slick-next {
+		top:-20px !important;
+	}
+
+	.slick-arrow {
+		background: #ff3366;
+		color: rgba(255,255,255,255);
+	}
+
 /* 
 * ---------------------------------------------------------------
-* Footer
+* FOOTER
 * ---------------------------------------------------------------
 */
 
