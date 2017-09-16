@@ -21,6 +21,7 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 			$data['group_products'][$group_product] = $this->$method($setting) ;
 		}
 
+		$data['product_template'] = $this->load->view('common/product/test') ;
 		$data['module'] = $module++;
 		return $this->load->view('extension/module/group_product_option', $data);
 	}
@@ -147,7 +148,6 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 
 	// GÁN CÁC THÔNG SỐ CHO SẢN PHẨM
 	public function setProduct($result, $setting = null) {
-		
 		$data = array();
 		if(empty($result)) return $data ;
 		
@@ -164,8 +164,19 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 		}
 
 		if ((float)$result['special']) {
+
+			// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+			$percent = ( 1 - ($result['special']/$result['price']) ) * 100;
+			$percent = ceil($percent) ;
+
+			// HIỂN THỊ THỜI GIAN CÒN LẠI CỦA KHUYẾN MÃI
+
+			// GIÁ KHUYẾN MÃI
 			$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 		} else {
+			// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+			$percent = 0;
+
 			$special = false;
 		}
 
@@ -183,6 +194,7 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 
 		$data = array(
 			'product_id'  => $result['product_id'],
+			'percent'     => $percent,
 			'thumb'       => $image,
 			'name'        => $result['name'],
 			'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
@@ -192,7 +204,7 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 			'rating'      => $rating,
 			'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 		);
-
+		
 		return $data;
 	}
 }
