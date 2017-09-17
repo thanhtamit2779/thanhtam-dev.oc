@@ -26,7 +26,6 @@ a:focus {
 
 html, body {
     color: #818181;
-    background-color: #ECF0F1;
 	height: 100%;
 	line-height: normal;
     word-wrap: break-word;
@@ -60,23 +59,23 @@ html, body {
 	justify-content: center;
 }
 
-.scrollToTop {
+.scroll-totop {
     width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     text-decoration: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     right: 20px;
     display: none;
-    z-index: 4;
-	background: #83BE62;
+    z-index: 999999;
+	background: #1b926c;
     color: #fff;
 	opacity: 0.8;
 }
 
-.scrollToTop:hover {
+.scroll-totop:hover {
 	color:#fff;
 	cursor: pointer;
 }
@@ -900,5 +899,55 @@ a.custom-banner-title:hover {
 * FOOTER
 * ---------------------------------------------------------------
 */
+.footer {
+	margin-top: 60px;
+	background: #eaeaea;
+	color: #333;
+}
+
+.footer-top {
+	overflow: hidden;
+	min-height: 150px;
+}
+.footer-top h5 {
+	text-transform: uppercase;
+	font-size: 16px;
+	list-style: none;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.footer-top #address-list {
+	margin-top: 18px;
+	overflow: hidden;
+}
+
+.footer-top .tit-name {
+    float: left;
+    font-weight: bold;
+	min-width: 100px;
+	width: 100px;
+    padding-right: 5px;
+}
+
+.footer-top .list-info {
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.footer-top .tit-contain {
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+}
+
+.footer-bottom {
+	background-color: #1b926c;
+    color: #fff !important;
+    overflow: hidden;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+}
 
 	

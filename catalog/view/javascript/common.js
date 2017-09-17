@@ -135,7 +135,7 @@ $(document).ready(function() {
 	});
 
 	// DISPLAY PRODUCT TAB
-	jQuery('.display-product-tab-list').slick({
+	$('.display-product-tab-list').slick({
         dots: false,
         infinite: false,
         speed: 300,
@@ -169,7 +169,21 @@ $(document).ready(function() {
           // settings: "unslick"
           // instead of a settings object
         ]
+	});
+	
+	// SCROLL TO TOP
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 1) {
+			$('#to-top').css('display', 'block'); 
+		} else {
+			$('#to-top').css('display', 'none');
+		}
+	});
+	$('#to-top').on('click', function () {
+        $('html, body').animate({scrollTop: '0px'}, 800);
+        return false;
     });
+
 
 });
 

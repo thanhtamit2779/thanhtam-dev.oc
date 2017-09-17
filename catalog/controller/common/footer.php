@@ -5,6 +5,20 @@ class ControllerCommonFooter extends Controller {
 
 		$this->load->model('catalog/information');
 
+		$data['name'] = $this->config->get('config_name');
+		
+		if ($this->request->server['HTTPS']) {
+			$server = $this->config->get('config_ssl');
+		} else {
+			$server = $this->config->get('config_url');
+		}
+
+		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
+			$data['logo'] = $server . 'image/' . $this->config->get('config_logo');
+		} else {
+			$data['logo'] = '';
+		}
+
 		$data['informations'] = array();
 
 		foreach ($this->model_catalog_information->getInformations() as $result) {
@@ -28,6 +42,11 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', true);
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
 		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
+
+		$data['address']	= $this->config->get('config_address') ;
+		$data['telephone']	= $this->config->get('config_telephone') ;
+		$data['open']	= $this->config->get('config_open') ;
+		$data['email']	= $this->config->get('config_email') ;
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 

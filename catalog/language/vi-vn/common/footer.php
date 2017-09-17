@@ -1,5 +1,8 @@
 <?php
 // Text
+$_['text_address']      = 'Địa chỉ';
+$_['text_email']        = 'Email';
+$_['text_phone']        = 'Điện thoại';
 $_['text_information']  = 'Thông tin';
 $_['text_service']      = 'Chăm sóc khách hàng';
 $_['text_extra']        = 'Chức năng khác';
@@ -14,4 +17,6 @@ $_['text_account']      = 'Tài khoản của tôi';
 $_['text_order']        = 'Lịch sử đơn hàng';
 $_['text_wishlist']     = 'Danh sách yêu thích';
 $_['text_newsletter']   = 'Thư thông báo';
-$_['text_powered']      = 'Việt hóa bởi <a href="http://vietxuagas.com.vn">VietXuanGas</a><br /> %s &copy; %s';
+$_['text_contact']      = 'Liên hệ';
+$_['text_social']      = 'Mạng xã hội';
+$_['text_powered']      = 'Copyright %s &copy; %s. Phiên bản Opencart thử nghiệm 3.0.2';

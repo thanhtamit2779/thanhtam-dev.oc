@@ -1,47 +1,73 @@
-<footer>
-  <div class="container">
-    <div class="row">
-      {% if informations %}
-      <div class="col-sm-3">
-        <h5>{{ text_information }}</h5>
-        <ul class="list-unstyled">
-         {% for information in informations %}
-          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-      <div class="col-sm-3">
-        <h5>{{ text_service }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-          <li><a href="{{ return }}">{{ text_return }}</a></li>
-          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5>{{ text_extra }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-          <li><a href="{{ special }}">{{ text_special }}</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5>{{ text_account }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
-          <li><a href="{{ order }}">{{ text_order }}</a></li>
-          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <section class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12 col-sm-4 col-lg-4">
+          <div id="address-box">
+              <a href="#">
+                  {% if logo %}
+                    <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive" />
+                  {% else %}
+                    <h2>{{ name }}</h2>
+                  {% endif %}
+              </a>
+              <div id="address-list">
+                  <p>
+                    <span class="tit-name"><i class="fa fa-map-marker"></i> {{ text_address}}:</span>
+                    <span class="tit-contain">{{ address }}</span>
+                  </p>
+
+                  <p>
+                    <span class="tit-name"><i class="fa fa-phone"></i> {{ text_phone }}:</span>
+                    <span class="tit-contain">{{ telephone }}</span>
+                  </p>  
+
+                  <p>
+                    <span class="tit-name"><i class="fa fa-envelope"></i> {{ text_email }}:</span>
+                    <span class="tit-contain">{{ email }}</span>
+                  </p>    
+              </div>
+          </div> 
+        </div>
+
+        {% if informations %}
+        <div class="col-sm-3 col-xs-12 col-sm-3 col-lg-3">
+          <h5><b>{{ text_information }}</b></h5>
+          <ul class="list-unstyled list-info">
+          {% for information in informations %}
+            <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
+          <h5><b>{{ text_account }}</b></h5>
+          <ul class="list-unstyled list-info">
+            <li><a href="{{ account }}">{{ text_account }}</a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+            <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+          <h5><b>{{ text_social }}</b></h5>
+        </div>
+      </div> 
+    </div> 
+  </section> 
+  <section class="footer-bottom">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <p>{{ powered }}</p>
+          </div>  
+        </div>
     </div>
-    <hr>
-    <p>{{ powered }}</p>
-  </div>
+  </section>
 </footer>
+<div class="scroll-totop
+scroll-totop" id="to-top"><span class="fa fa-arrow-up"></span></div>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
