@@ -66,8 +66,21 @@
     </div>
   </section>
 </footer>
-<div class="scroll-totop
-scroll-totop" id="to-top"><span class="fa fa-arrow-up"></span></div>
+<div class="scroll-totop" id="to-top">
+  <span class="fa fa-arrow-up"></span>
+</div>
+
+<div class="hidden-xs">
+  <a class="click-phone" href="tel:{{ telephone }}">
+    <div class="quick-alo-phone quick-alo-green quick-alo-show" id="quick-alo-phoneIcon" style="right: 5px; bottom: : 0px;">
+      <div class="info topopup">
+        <div class="quick-alo-ph-circle"></div>
+        <div class="quick-alo-ph-circle-fill"></div>
+        <div class="quick-alo-ph-img-circle"><i class="fa fa-phone" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </a>
+</div>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>

@@ -6,24 +6,24 @@
 </a>
 {% if products or vouchers %}
   <ul class="cart-info hidden-xs list-unstyled">
-      <li><p>{{ text_items }}</p></li>
+      <li><p class="text-left"><b>{{ text_count_cart }}</b></p></li>
       <li class="cart-info-lists">
           <ul class="list-unstyled">
               {% for product in products %}
                   <li class="cart-list-item">
                       <div class="pull-left cart-list-item-image">
-                          {% if product.thumb %} 
-                            <a href="{{ product.href }}">
+                          {% if product.thumb %}
+                            <a onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="pull-left"><i class="fa fa-close" aria-hidden="true"></i></a> 
+                            <a href="{{ product.href }}" class="pull-right">
                               <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
                             </a> 
                           {% endif %}
                       </div>
                       <div class="pull-left cart-list-item-info">
                           <p class="p-name">{{ product.name }}</p>
-                          <p class="p-rice">{{ product.price }}</p>
-                          <p>Qty: x {{ product.quantity }}</p>
-                      </div>
-                      <button type="button" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="btn btn-danger btn-xs pull-right"><i class="fa fa-times" aria-hidden="true"></i></button>
+                          <p class="p-rice">{{ text_price }}: {{ product.price }}</p>
+                          <p>{{ text_quanties }}: x {{ product.quantity }}</p>
+                      </div>   
                   </li>
               {% endfor %}   
           </ul>
