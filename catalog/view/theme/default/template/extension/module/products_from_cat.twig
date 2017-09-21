@@ -1,0 +1,91 @@
+{% set cate_name   = categories.parent.text %} 
+{% set cate_image  = categories.parent.thumb %}
+{% set cate_link   = categories.parent.href %}
+{% set cate_childrens   = categories.children %}
+<section class="product-as-category">
+    <div class="container">
+        <div class="box template-product-category-default">
+            <div class="box-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                <h3 class="box-title pull-left">{{ cate_name }}</h3>
+                <ul class="list-inline pull-left list-sub-cats">
+                    {% for cate_child in cate_childrens %} 
+                            {% if cate_child is empty %} 
+                                {% set continue = true %}
+                            {% endif %}
+                            <li><a href="{{ cate_child.href }}" aria-expanded="true">{{ cate_child.name }}</a></li>    
+                    {% endfor %}
+                    <li><a href="{{ cate_link }}">{{ text_view_all }} <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                </ul>
+                <!--<span class="pull-right"><i class="fa fa-angle-up"></i></span> -->
+            </div>
+            <div class="box-body col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+                <div class="box-image no-padding pull-left">
+                    <a title="{{ cate_name }}" href="{{ cate_link }}" >
+                        <img src="{{ cate_image }}" alt="{{ cate_name }}" title="{{ cate_name }}" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="box-content no-padding pull-right vertical-center">
+                    <div class="box-content-slider">
+                        {% if products %}
+                            {% for product in products %}
+                                {% if product.thumb is empty %} 
+                                    {% set continue = true %}
+                                {% endif %}
+                                <!-- {{ product.name }}-->
+                                <div class="item">
+                                    <div class="template-product-default product">
+                                        <div class="product-mask">
+                                            <a title="{{ product.name }}" href="{{ product.href }}" ><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a>
+                                            <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
+                                            <p class="product-price">
+                                                {% if not product.special %}
+                                                    <span class="product-price-new pull-right">{{ product.price }}</span>
+                                                {% else %} 
+                                                    <span class="product-price-new pull-left">{{ product.special }}</span> 
+                                                    <span class="product-price-old pull-right">{{ product.price }}</span> 
+                                                {% endif %}
+                                            </p>
+                                            {% if product.percent > 0 %}
+                                                <span class="product-percent">-{{ product.percent }}%</span>
+                                            {% endif %}
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-description">
+                                                {{ product.description }}
+                                            </div>
+                                            <ul class="product-icon list-inline horizontal-center">
+                                                <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                                <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
+                                                <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a>                                                 
+                                            </ul>
+                                            <span class="product-add-cart">
+                                                <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}  
+                    </div>
+                    <div class="box-content-control"> 
+                        <button class="control-left"><i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </button> 
+                        <button class="control-right"><i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button> 
+                    </div>       
+                </div>
+            </div> 
+        </div>
+    </div>       
+</section>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.list-sub-cats li:first-child').addClass('active') ;
+
+        $('.list-sub-cats li').off('click').on('click', 'a', function(event) {
+            event.preventDefault() ;
+            $(this).parent().siblings().removeClass('active');
+            $(this).parent().addClass('active') ;
+        }) ;
+    }) ;
+</script>

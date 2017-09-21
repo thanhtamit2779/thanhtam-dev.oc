@@ -541,3 +541,12 @@ $(document).delegate('.agree', 'click', function(e) {
 		});
 	}
 })(window.jQuery);
+
+$(document).ready(function() {
+
+	// SLIDER PRODUCT CAROUSEL
+	$('.box-content').multislider({
+		duration: 750,
+		interval: 3000
+	});    
+}) ;
