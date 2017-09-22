@@ -126,6 +126,7 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 				);
 		}
 
+		$data['ajax_load_product'] = HTTPS_SERVER;
 		return $this->load->view('extension/module/products_from_cat', $data);
 	}
 }
