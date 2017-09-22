@@ -914,6 +914,7 @@ a.custom-banner-title:hover {
 		white-space: nowrap;
 		overflow: hidden;
 		padding:10px 0px;
+		width: 100%;
 	}
 	  
 	.template-product-category-default .box-content-slider .item {
