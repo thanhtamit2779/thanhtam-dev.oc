@@ -447,6 +447,32 @@ class ControllerCatalogCategory extends Controller {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
+		// THÊM NHIỀU ẢNH CHO DANH MỤC
+		if (isset($this->request->post['category_image'])) {
+			$category_images = $this->request->post['category_image'];
+		} elseif (isset($this->request->get['category_id'])) {
+			$category_images = $this->model_catalog_category->getCategoryImages($this->request->get['category_id']);
+		} else {
+			$category_images = array();
+		}
+
+		$data['category_images'] = array();
+		foreach ($category_images as $category_image) {
+			if (is_file(DIR_IMAGE . $category_image['image'])) {
+				$image = $category_image['image'];
+				$thumb = $category_image['image'];
+			} else {
+				$image = '';
+				$thumb = 'no_image.png';
+			}
+
+			$data['category_images'][] = array(
+				'image'      => $image,
+				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'sort_order' => $category_image['sort_order']
+			);
+		}
+
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		if (isset($this->request->post['top'])) {

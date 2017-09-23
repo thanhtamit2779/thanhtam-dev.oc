@@ -57,7 +57,7 @@ $_['entry_parent']           = 'Danh mục gốc:';
 $_['entry_filter']           = 'Lọc:';
 
 $_['entry_store']            = 'Cửa hàng:';
-
+$_['entry_additional_image'] = 'Hình ảnh';
 
 $_['entry_image']            = 'Hình ảnh:';
 
