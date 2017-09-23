@@ -2,7 +2,7 @@
 {% set cate_image  = categories.parent.thumb %}
 {% set cate_link   = categories.parent.href %}
 {% set cate_childrens   = categories.children %}
-<section class="product-as-category">
+<section class="product-as-category" id="product-as-category-{{ module }}">
     <div class="container">
         <div class="box template-product-category-default">
             <div class="box-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
@@ -82,12 +82,20 @@
     var url_product_category = '{{ ajax_load_product }}' + 'index.php?route=ajax/category/getProductCategory' ;
     $(document).ready(function() {
 
-        $('.list-sub-cats li').off('click').on('click', 'a', function(event) {
+        // SLIDER PRODUCT CAROUSEL
+        $('#product-as-category-{{ module }} .box-content').multislider({
+            duration: 750,
+            interval: 3000
+        });    
+
+        $('#product-as-category-{{ module }} .list-sub-cats li').off('click').on('click', 'a', function(event) {
 
             // ACTIVE MENU
             event.preventDefault() ;
             $(this).parent().siblings().removeClass('active');
             $(this).parent().addClass('active') ;
+
+            $('#product-as-category-{{ module }} .box-content-slider').empty() ;
 
             // GET PRODUCT CATEGORY
             var category_id = $(this).data('category-id') ;
@@ -98,9 +106,9 @@
                 dataType    : 'json',
                 data        : { category_id : category_id } 
             }).done(function(response) {
-                $('.box-content-slider').empty() ;
+                $('#product-as-category-{{ module }} .box-content-slider').empty() ;
                 if(response.status == 0) return false;
-                $('.box-content-slider').append(response.data);
+                $('#product-as-category-{{ module }} .box-content-slider').append(response.data);
                 return false;
             }) ;
 

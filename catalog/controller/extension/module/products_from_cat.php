@@ -2,6 +2,7 @@
 class ControllerExtensionModuleProductsFromCat extends Controller {
 
 	public function index($setting) {
+		static $module = 0;
 		$this->language->load('extension/module/products_from_cat');
 		
 		$this->load->model('catalog/product');
@@ -37,14 +38,14 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 				);
 
 				// ĐỌC DỮ LIỆU TỪ FILE CACHE
-				$categories = $this->cache->get('product.category') ;
+				$categories = $this->cache->get('product.category.' . $category_id ) ;
 
 				// CHƯA CÓ CACHE: LẤY DỮ LIỆU => LƯU LẠI CACHE
 				if(!$categories) {
 					$get_category = $this->model_catalog_category->getCategories($category_id);
-					$this->cache->set('product.category' , $get_category);
+					$this->cache->set('product.category.' . $category_id , $get_category);
 					// ĐỌC DỮ LIỆU TỪ FILE CACHE
-					$categories = $this->cache->get('product.category') ;
+					$categories = $this->cache->get('product.category.' . $category_id) ;
 				}
 				
 				if( !empty($categories) ) {
@@ -62,15 +63,15 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 		$data['products'] = array();
 
 		// ĐỌC DỮ LIỆU TỪ FILE CACHE
-		$products = $this->cache->get('product.product_as_category') ;
+		$products = $this->cache->get('product.product_as_category.' .$category_id) ;
 
 		// CHƯA CÓ CACHE: LẤY DỮ LIỆU => LƯU LẠI CACHE
 		if(!$products) {
 			$get_product = $this->model_extension_module_products_from_cat->getProducts($setting);
-			$this->cache->set('product.product_as_category' , $get_product);
+			$this->cache->set('product.product_as_category.' .$category_id, $get_product);
 			
 			// ĐỌC DỮ LIỆU TỪ FILE CACHE
-			$products = $this->cache->get('product.product_as_category') ;
+			$products = $this->cache->get('product.product_as_category.' .$category_id) ;
 		}
 
 		$products = $this->model_extension_module_products_from_cat->getProducts($setting);
@@ -127,6 +128,7 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 		}
 
 		$data['ajax_load_product'] = HTTPS_SERVER;
+		$data['module'] = $module++;
 		return $this->load->view('extension/module/products_from_cat', $data);
 	}
 }
