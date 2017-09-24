@@ -134,55 +134,6 @@ $(document).ready(function() {
 		$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 	});
 
-	// DISPLAY PRODUCT TAB
-	$('.display-product-tab-list').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-          // You can unslick at a given breakpoint now by adding:
-          // settings: "unslick"
-          // instead of a settings object
-        ]
-	});
-	
-	// SCROLL TO TOP
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 1) {
-			$('#to-top').css('display', 'block'); 
-		} else {
-			$('#to-top').css('display', 'none');
-		}
-	});
-	$('#to-top').on('click', function () {
-        $('html, body').animate({scrollTop: '0px'}, 800);
-        return false;
-    });
 });
 
 // Cart add remove functions
