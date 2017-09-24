@@ -63,3 +63,30 @@ $_['action_event'] = array(
 		'event/debug/after'
 	)
 );
+
+
+/* ----------------------------------------------------------
+|  CẤU HÌNH RESIZE ẢNH
+|  ----------------------------------------------------------
+*/ 
+
+// CHIỀU RỘNG ẢNH CHO PRODUCT TAB
+$_['image_resize_width_product_tab'] 		= 270;
+// CHIỀU CAO ẢNH CHO PRODUCT TAB
+$_['image_resize_height_product_tab'] 		= 270;
+
+// CHIỀU RỘNG ẢNH ĐẠI DIỆN CHO CATEGORY
+$_['image_resize_width_avatar_category'] 	= 270;
+// CHIỀU CAO ẢNH ĐẠI DIỆN CHO CATEGORY
+$_['image_resize_height_avatar_category'] 	= 270;
+
+// CHIỀU RỘNG CHO SLIDER CATEGORY
+$_['image_resize_width_slider_category'] 	= 270;
+// CHIỀU CAO CHO SLIDER CATEGORY
+$_['image_resize_height_slider_category'] 	= 270;
+
+// CHIỀU RỘNG ẢNH MẶC ĐỊNH CHO PRODUCT
+$_['image_resize_width_product_default'] 	= 270;
+// CHIỀU CAO ẢNH MẶC ĐỊNH CHO PRODUCT
+$_['image_resize_height_product_default'] 	= 270;
+
