@@ -2,7 +2,7 @@
 class ControllerExtensionModuleSlideshow extends Controller {
 	public function index($setting) {
 		static $module = 0;	
-		
+	
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 
@@ -11,12 +11,12 @@ class ControllerExtensionModuleSlideshow extends Controller {
 		$data['height'] = $setting['height'] ;
 
 		// CACHE FILE: SYSTEM/STORAGE/CACHE
-		$results = $this->cache->get('catalog.extension.module.slideshow');
+		$results = $this->cache->get('catalog.extension.module.slideshow' . $setting['banner_id']);
 		if(! $results ) {
 			$set_sliders = $this->model_design_banner->getBanner($setting['banner_id']);
 			if( empty($set_sliders)) return FALSE ;
-			$this->cache->set('catalog.extension.module.slideshow', $set_sliders);
-			$results = $this->cache->get('catalog.extension.module.slideshow');
+			$this->cache->set('catalog.extension.module.slideshow' . $setting['banner_id'], $set_sliders);
+			$results = $this->cache->get('catalog.extension.module.slideshow' . $setting['banner_id']);
 		}
 
 		foreach ($results as $result) {
