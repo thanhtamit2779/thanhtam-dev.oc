@@ -81,9 +81,9 @@ $_['image_resize_width_avatar_category'] 	= 270;
 $_['image_resize_height_avatar_category'] 	= 270;
 
 // CHIỀU RỘNG CHO SLIDER CATEGORY
-$_['image_resize_width_slider_category'] 	= 270;
+$_['image_resize_width_slider_category'] 	= 870;
 // CHIỀU CAO CHO SLIDER CATEGORY
-$_['image_resize_height_slider_category'] 	= 270;
+$_['image_resize_height_slider_category'] 	= 288;
 
 // CHIỀU RỘNG ẢNH MẶC ĐỊNH CHO PRODUCT
 $_['image_resize_width_product_default'] 	= 270;
