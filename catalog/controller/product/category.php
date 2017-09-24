@@ -147,6 +147,17 @@ class ControllerProductCategory extends Controller {
 				);
 			}
 
+			// HÌNH ẢNH SLIDER CHO DANH MỤC
+			// FILE CONFIG : SYSTEM/CONFIG/CATALOG
+			$category_images = $this->model_catalog_category->getCategoryImages($category_id);
+			
+			if(! empty($category_images) ) {
+				foreach ($category_images as $category_image) {
+					$data['category_images'][] = array(
+						'slider' => $this->model_tool_image->resize($category_image['image'], $this->config->get('image_resize_width_slider_category'), $this->config->get('image_resize_height_slider_category'))
+					);
+				}
+			}
 			$data['products'] = array();
 
 			$filter_data = array(
