@@ -1,17 +1,98 @@
-<div class="list-group">
-  {% for category in categories %}
-  {% if category.category_id == category_id %} 
-  <a href="{{ category.href }}" class="list-group-item active">{{ category.name }}</a> 
-  {% if category.children %}
-  {% for child in category.children %}
-  {% if child.category_id == child_id %}
-  <a href="{{ child.href }}" class="list-group-item active">&nbsp;&nbsp;&nbsp;- {{ child.name }}</a> 
-  {% else %} 
-  <a href="{{ child.href }}" class="list-group-item">&nbsp;&nbsp;&nbsp;- {{ child.name }}</a>
-  {% endif %}
-  {% endfor %}
-  {% endif %}
-  {% else %} <a href="{{ category.href }}" class="list-group-item">{{ category.name }}</a>
-  {% endif %}
-  {% endfor %}
+<div class="box-block">
+   <h4 class="box-heading">{{ heading_title }}</h4>
+    <ul class="accordion box-content"  id="accordion-1">
+    {% for category in categories %}
+            <li>
+            {% if category.category_id == category_id %}
+                <a href="{{ category.href }}" class="active">
+                    {{ category.name }}
+                    {% if category.children %}
+                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                    {% endif %}
+                </a>
+            {% else %}
+                <a href="{{ category.href }}">
+                    {{ category.name }}
+                    {% if category.children %}
+                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                    {% endif %}
+                </a>
+            {% endif %}    
+            
+            {% if category.children %}
+                <ul class="sub-menu">
+                    {% for child in category.children %}
+                    {% if child.category_id == child_id %}
+                        <li><a href="{{ child.href }}" class="active"><i class="fa fa-angle-right"></i> {{ child.name }}</a></li> 
+                    {% else %} 
+                        <li><a href="{{ child.href }}" class=""><i class="fa fa-angle-right"></i> {{ child.name }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>  
+            {% endif %}
+            
+            </li>
+    {% endfor %}
+    </ul>  
 </div>
+<script type="text/javascript">
+$(document).ready(function($){
+           $('#accordion-1').dcAccordion({
+                 eventType: 'hover',
+                 autoClose: true,
+                 disableLink: false,
+                 speed: 'fast',
+                 showCount: false,
+                 autoExpand: true,
+                 saveState: false,
+                 classActive  : 'active',    // Class of active parent link
+                 hoverDelay   : 100,    // Hover delay for hoverIntent plugin
+                 classExpand  : 'dcjq-current-parent'
+             });
+                            $('#accordion-2').dcAccordion({
+                                eventType: 'click',
+                                autoClose: false,
+                                saveState: true,
+                                disableLink: true,
+                                speed: 'fast',
+                                classActive: 'test',
+                                showCount: true
+                            });
+                            $('#accordion-3').dcAccordion({
+                                eventType: 'click',
+                                autoClose: false,
+                                saveState: false,
+                                disableLink: false,
+                                showCount: false,
+                                speed: 'slow'
+                            });
+                            $('#accordion-4').dcAccordion({
+                                eventType: 'hover',
+                                autoClose: true,
+                                saveState: true,
+                                disableLink: true,
+                                menuClose: false,
+                                speed: 'slow',
+                                showCount: true
+                            });
+                            $('#accordion-5').dcAccordion({
+                                eventType: 'hover',
+                                autoClose: false,
+                                saveState: true,
+                                disableLink: true,
+                                menuClose: true,
+                                speed: 'fast',
+                                showCount: true
+                            });
+                            $('#accordion-6').dcAccordion({
+                    eventType: 'hover',
+                    autoClose: false,
+                    saveState: false,
+                    disableLink: false,
+                    showCount: false,
+                    menuClose: true,
+                    speed: 'slow'
+                  });
+         });
+</script>
+

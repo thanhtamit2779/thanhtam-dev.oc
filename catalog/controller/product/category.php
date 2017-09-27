@@ -175,9 +175,9 @@ class ControllerProductCategory extends Controller {
 
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('image_resize_width_product_default'), $this->config->get('image_resize_height_product_default'));
 				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('image_resize_width_product_default'), $this->config->get('image_resize_height_product_default'));
 				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
