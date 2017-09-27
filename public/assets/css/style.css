@@ -92,6 +92,10 @@ html, body {
 	margin:0 !important ;
 }
 
+.no-border {
+	border:none !important;
+}
+
 /* 
 * ---------------------------------------------------------------
 * HEADER 
@@ -1145,14 +1149,15 @@ a.custom-banner-title:hover {
 			border-bottom: 2px solid #eaeaea !important;
 		}
 
-		.product-category-list .headding-title {
+		.product-category-list h2.headding-title {
 			font-weight: 700;
 			text-align: left;
 			text-transform: uppercase;
 			line-height: 35px;
 			font-size: 16px;
-			margin-top: -2px;
+			margin-top: -2px !important;
 			border-bottom: 2px solid #ff3366 !important;
+			padding:0;
 		}
 
 		.product-category-list ul.heading-option-display li {
@@ -1232,6 +1237,93 @@ a.custom-banner-title:hover {
 			padding:5px 20px;
 			margin-top:10px;
 		}
+
+		/* ---------------------------------------------------------------
+		|  MODULE CATEGORY
+		|  ---------------------------------------------------------------
+		*/
+		.box-block {
+			border: 1px solid #eaeaea;
+			margin-bottom: 20px;
+			overflow: hidden;
+			padding:10px 15px;
+		}
+
+		.box-block .box-heading {
+			margin-bottom: 10px;
+			text-transform: uppercase;
+		}
+		
+		.box-block .box-content {
+			border-top: 1px solid #eaeaea;
+			padding: 10px 0px;
+			position: relative;
+		}
+
+		.box-block .box-content li a {
+			display: block;
+			padding:10px 0px;
+		}
+
+		.box-block .box-content li a.active, .box-block .box-content li a:hover {
+			color: #ff3366;
+			font-weight: bold;
+		}
+
+		/* ---------------------------------------------------------------
+		|  MODULE PRODUCT LEFT RIGHT SIDEBAR
+		|  ---------------------------------------------------------------
+		*/
+		li.product-vertical {
+			width: 100%;
+			overflow: hidden;
+			padding: 10px 0px;
+			border-bottom: 1px solid #eaeaea;
+			margin-bottom: 5px;
+		}
+
+		.box-content li:last-child {
+			padding-bottom: 0;
+			border-bottom: none;	
+		}
+
+		li.product-vertical .product-image {
+			min-width: 75px; 
+			min-height: 90px;
+			margin-right: 20px;			
+		}
+
+		li.product-vertical .product-image img {
+
+		}
+
+		.product-vertical .product-info { 
+			min-height: 90px;
+			overflow: hidden;
+		}
+
+		.product-vertical .product-name {
+			min-height: 40px;
+			overflow: hidden;
+		}
+
+		.product-vertical .product-name a:hover {
+			color: #ff3366;
+		}
+
+		.product-vertical .product-price {
+			font-size: 18px;
+			color: #ff3366;
+			line-height: 30px;
+		}
+
+		.product-vertical .product-old {
+			font-size: 14px;
+			color: #333;
+			text-decoration: line-through;
+		}
+
+
 
 /* 
 * ---------------------------------------------------------------
