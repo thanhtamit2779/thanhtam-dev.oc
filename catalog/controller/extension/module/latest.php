@@ -16,7 +16,13 @@ class ControllerExtensionModuleLatest extends Controller {
 			'limit' => $setting['limit']
 		);
 
-		$results = $this->model_catalog_product->getProducts($filter_data);
+		// GET CACHE
+		$results = $this->cache->get('catalog.module.last-' . $setting['width']);
+		// CHƯA CÓ CACHE -> LẤY DỮ LIỆU -> GET CACHE
+		if(!$results) {
+			$this->cache->set('catalog.module.last-' . $setting['width'], $this->model_catalog_product->getProducts($filter_data)) ;
+			$results = $this->cache->get('catalog.module.last-' . $setting['width']);
+		}
 
 		if ($results) {
 			foreach ($results as $result) {
@@ -34,8 +40,15 @@ class ControllerExtensionModuleLatest extends Controller {
 
 				if ((float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					
+					// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+					$percent = ( 1 - ($result['special']/$result['price']) ) * 100;
+					$percent = ceil($percent) ;
 				} else {
 					$special = false;
+
+					// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+					$percent = 0;
 				}
 
 				if ($this->config->get('config_tax')) {
@@ -52,6 +65,7 @@ class ControllerExtensionModuleLatest extends Controller {
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
+					'percent'     => $percent,
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
@@ -63,6 +77,10 @@ class ControllerExtensionModuleLatest extends Controller {
 				);
 			}
 
+			// TRUYỀN VỊ TRÍ NGOÀI VIEW		
+			if( !empty($setting['position']) ) {
+				$data['position'] = $setting['position'];
+			}
 			return $this->load->view('extension/module/latest', $data);
 		}
 	}

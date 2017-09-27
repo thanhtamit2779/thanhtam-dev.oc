@@ -16,7 +16,14 @@ class ControllerExtensionModuleSpecial extends Controller {
 			'limit' => $setting['limit']
 		);
 
-		$results = $this->model_catalog_product->getProductSpecials($filter_data);
+		// GET CACHE
+		$results = $this->cache->get('catalog.module.special-' . $setting['width']);
+		
+		// CHƯA CÓ CACHE -> LẤY DỮ LIỆU -> GET CACHE
+		if(!$results) {
+			$this->cache->set('catalog.module.special-' . $setting['width'], $this->model_catalog_product->getProductSpecials($filter_data)) ;
+			$results = $this->cache->get('catalog.module.special-' . $setting['width']);
+		}
 
 		if ($results) {
 			foreach ($results as $result) {
@@ -61,6 +68,11 @@ class ControllerExtensionModuleSpecial extends Controller {
 					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
+			}
+
+			// TRUYỀN VỊ TRÍ NGOÀI VIEW		
+			if( !empty($setting['position']) ) {
+				$data['position'] = $setting['position'];
 			}
 
 			return $this->load->view('extension/module/special', $data);
