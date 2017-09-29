@@ -26,13 +26,13 @@
                 </div>
                 <div class="box-content no-padding pull-right vertical-center">
                     <div class="box-content-slider">
-                        {% if products %}
-                            {% for product in products %}
-                                {% if product.thumb is empty %} 
-                                    {% set continue = true %}
-                                {% endif %}
-                                <!-- {{ product.name }}-->
-                                <div class="item">
+                        <div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                            {% if products %}
+                                {% for product in products %}
+                                    {% if product.thumb is empty %} 
+                                        {% set continue = true %}
+                                    {% endif %}
+                                    <!-- {{ product.name }}-->
                                     <div class="template-product-default product">
                                         <div class="product-mask">
                                             <a title="{{ product.name }}" href="{{ product.href }}" ><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a>
@@ -63,15 +63,9 @@
                                             </span>
                                         </div>
                                     </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}  
-                    </div>
-                    <div class="box-content-control"> 
-                        <button class="control-left"><i class="fa fa-angle-left" aria-hidden="true"></i>
-                        </button> 
-                        <button class="control-right"><i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </button> 
+                                {% endfor %}
+                            {% endif %}  
+                        </div>
                     </div>       
                 </div>
             </div> 
@@ -83,10 +77,10 @@
     $(document).ready(function() {
 
         // SLIDER PRODUCT CAROUSEL
-        $('#product-as-category-{{ module }} .box-content').multislider({
-            duration: 750,
-            interval: 3000
-        });    
+        // $('#product-as-category-{{ module }} .box-content').multislider({
+        //     duration: 750,
+        //     interval: 3000
+        // });    
 
         $('#product-as-category-{{ module }} .list-sub-cats li').off('click').on('click', 'a', function(event) {
 
@@ -108,7 +102,21 @@
             }).done(function(response) {
                 $('#product-as-category-{{ module }} .box-content-slider').empty() ;
                 if(response.status == 0) return false;
-                $('#product-as-category-{{ module }} .box-content-slider').append(response.data);
+                 $('#product-as-category-{{ module }} .box-content-slider').wrapInner('<div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true">');
+                 $('#product-as-category-{{ module }} .box-content-slider .display-product-tab-list').append(response.data);
+                 
+                 // OWL CAROUSEL
+                $(".owl-carousel").each(function(index, el) {
+                    var config = $(this).data();
+                    config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
+                    config.smartSpeed="300";
+                    if($(this).hasClass('owl-style2')){
+                    config.animateOut="fadeOut";
+                    config.animateIn="fadeIn";    
+                    }
+                    $(this).owlCarousel(config);
+                });
+
                 return false;
             }) ;
 

@@ -10,7 +10,7 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 		$this->load->model('tool/image');		
 		$this->load->model('extension/module/products_from_cat');
 
-		$this->document->addScript('public/plugins/slider/multislider/multislider.min.js', 'footer');
+		//$this->document->addScript('public/plugins/slider/multislider/multislider.min.js', 'footer');
 
 		$limit = html_entity_decode($setting['limit']);
 		
