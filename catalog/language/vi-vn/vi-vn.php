@@ -54,9 +54,9 @@ $_['button_cart']           = 'Mua hàng';
 
 $_['button_cancel']         = 'Hủy bỏ';
 
-$_['button_compare']        = 'So sánh sản phẩm';
+$_['button_compare']        = 'So sánh';
 
-$_['button_wishlist']       = 'Thêm vào DS yêu thích';
+$_['button_wishlist']       = 'Yêu thích';
 
 $_['button_checkout']       = 'Thanh toán';
 

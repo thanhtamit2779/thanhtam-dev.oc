@@ -5,6 +5,11 @@ class ControllerProductProduct extends Controller {
 	public function index() {
 		$this->load->language('product/product');
 
+		$this->document->addStyle('public/plugins/unitegallery/css/unite-gallery.css');
+		$this->document->addStyle('public/plugins/unitegallery/themes/default/ug-theme-default.css');
+		$this->document->addScript('public/plugins/unitegallery/js/unitegallery.min.js', 'footer');
+		$this->document->addScript('public/plugins/unitegallery/themes/default/ug-theme-default.js', 'footer');	
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -282,9 +287,16 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if ((float)$product_info['special']) {
+				// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+				$percent = ( 1 - ($product_info['special']/$product_info['price']) ) * 100;
+				$percent = ceil($percent) ;
+				$data['percent'] = $percent;
+
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 			} else {
 				$data['special'] = false;
+				$percent = 0 ;
+				$data['percent'] = $percent;
 			}
 
 			if ($this->config->get('config_tax')) {
