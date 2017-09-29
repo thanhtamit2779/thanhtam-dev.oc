@@ -169,8 +169,6 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 			$percent = ( 1 - ($result['special']/$result['price']) ) * 100;
 			$percent = ceil($percent) ;
 
-			// HIỂN THỊ THỜI GIAN CÒN LẠI CỦA KHUYẾN MÃI
-
 			// GIÁ KHUYẾN MÃI
 			$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 		} else {
