@@ -13,9 +13,18 @@
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      {{ description }}{{ content_bottom }}</div>
+    <div id="content" class="{{ class }}">
+      {{ content_top }}
+      <div class="block-heading">
+        <div class="heading no-padding">
+          <h2 class="headding-title pull-left">{{ heading_title }}</h2>  
+        </div>
+        <div class="content clr row">
+            {{ description }}
+        </div>
+      </div>      
+      {{ content_bottom }}
+    </div>
     {{ column_right }}</div>
 </div>
 {{ footer }}
