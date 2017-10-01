@@ -99,6 +99,38 @@ html, body {
 	border:none !important;
 }
 
+.clr {
+	clear: both !important;
+}
+
+.heading-width-fixed {
+	width: 30% !important;
+	white-space: nowrap !important;
+}
+
+.btn-default, #button-confirm {
+	padding: 7px 15px;
+	border: none !important;
+	background: #ff3366;
+	color: #fff;
+	border-radius: 0 !important;
+}
+
+.btn-default:hover, .btn-default:link, .btn-default:active, .btn-default:focus, .btn-default:visited {
+	color:#fff !important;
+	background: #ff3366;
+}
+
+.panel { 
+	border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+}
+
+.no-bg {
+	background: none !important;
+}
+
 /* 
 * ---------------------------------------------------------------
 * HEADER 
@@ -863,8 +895,8 @@ a.custom-banner-title:hover {
 	}
 	
 	.product-as-category {
-		background-color: #eeeeee !important;
 		padding:10px 0px;
+		overflow: hidden;
 	}
 
 	.template-product-category-default {
@@ -1085,14 +1117,14 @@ a.custom-banner-title:hover {
 			width: 25%;
 		}
 
-		.product-category-list {
+		.product-category-list, .block-heading {
 			width: 100%;
 			height: auto;
 			overflow: hidden;
 			display: block;
 		}
 
-		.product-category-list .heading {
+		.heading {
 			width: 100%;
 			display: block;
 			background-color: rgba(255,255,255,255);
@@ -1101,7 +1133,7 @@ a.custom-banner-title:hover {
 			border-bottom: 2px solid #eaeaea !important;
 		}
 
-		.product-category-list h2.headding-title {
+		.headding-title {
 			font-weight: 700;
 			text-align: left;
 			text-transform: uppercase;
@@ -1327,6 +1359,20 @@ a.custom-banner-title:hover {
 			margin-top:15px;
 			margin-top: 15px;
 			text-align: justify;
+		}
+
+		/* ---------------------------------------------------------------
+		|  PAGE CHECK LOGIN - REGISTER
+		|  ---------------------------------------------------------------
+		*/
+		.form-login, .form-register {
+			border: 1px solid #eaeaea;
+			padding:15px 20px;
+			height: 285px;
+		} 
+
+		.form-login h2, .form-register h2 {
+			font-size: 18px;	
 		}
 /* 
 * ---------------------------------------------------------------
