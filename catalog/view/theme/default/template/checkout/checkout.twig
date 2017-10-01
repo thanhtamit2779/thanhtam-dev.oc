@@ -19,8 +19,10 @@
     {% set class = 'col-sm-12' %}
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      <div class="panel-group" id="accordion">
+      <div class="heading no-padding">
+        <h2 class="headding-title pull-left">{{ heading_title }}</h2>
+      </div>
+      <div class="panel-group clr" id="accordion">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">{{ text_checkout_option }}</h4>
