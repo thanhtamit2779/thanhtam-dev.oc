@@ -94,9 +94,15 @@ class ControllerProductSpecial extends Controller {
 			}
 
 			if ((float)$result['special']) {
+				// HIỂN THỊ GIẢM BAO NHIÊU % KHUYẾN MÃI
+				$percent = ( 1 - ($result['special']/$result['price']) ) * 100;
+				$percent = ceil($percent) ;	
+			
 				$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 			} else {
 				$special = false;
+
+				$percent = 0 ;
 			}
 
 			if ($this->config->get('config_tax')) {
@@ -114,6 +120,7 @@ class ControllerProductSpecial extends Controller {
 			$data['products'][] = array(
 				'product_id'  => $result['product_id'],
 				'thumb'       => $image,
+				'percent'     => $percent,
 				'name'        => $result['name'],
 				'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 				'price'       => $price,
