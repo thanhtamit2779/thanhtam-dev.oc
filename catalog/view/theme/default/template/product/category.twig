@@ -34,31 +34,13 @@
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon metro" for="input-limit">{{ text_limit }}</label>
             <select id="input-limit" class="form-control metro" onchange="location = this.value;">
-              
-              
-              
               {% for limits in limits %}
               {% if limits.value == limit %}
-              
-              
-              
               <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
-              
-              
-              
               {% else %}
-              
-              
-              
               <option value="{{ limits.href }}">{{ limits.text }}</option>
-              
-              
-              
               {% endif %}
               {% endfor %}
-            
-            
-            
             </select>
           </div>
         </div>
@@ -94,9 +76,9 @@
         </div>
       </div>
       <div class="row no-padding no-margin"> 
-        <div class="product-category-list">
+        <div class="block-display-item">
           <div class="heading no-padding">
-            <h2 class="headding-title pull-left">{{ heading_title }}</h2>  
+            <h2 class="headding-title pull-left no-margin">{{ heading_title }}</h2>  
             <ul class="heading-option-display list-inline pull-right">
               <li class="view-as-grid active">
                   <a id="list-view" title="{{ button_list }}" class="vertical-center"><i class="fa fa-th-list"></i></a>
@@ -106,7 +88,7 @@
               </li>
             </ul>
           </div>
-          <div class="content clearfix row"> 
+          <div class="content row clr"> 
             {% for product in products %}
                 <!-- {{ product.name }}-->
                                               <div class="col-xs-6 col-sm-4 col-md-4">
