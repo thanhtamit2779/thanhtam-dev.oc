@@ -4,35 +4,34 @@
             {% set continue = true %}
         {% endif %}
         <!-- {{ product.name }}-->
-            <div class="template-product-default product">
-                <div class="product-mask">
-                    <a title="{{ product.name }}" href="{{ product.href }}" ><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a>
-                    <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
-                    <p class="product-price">
-                        {% if not product.special %}
-                            <span class="product-price-new pull-right">{{ product.price }}</span>
-                        {% else %} 
-                            <span class="product-price-new pull-left">{{ product.special }}</span> 
-                            <span class="product-price-old pull-right">{{ product.price }}</span> 
-                        {% endif %}
-                    </p>
-                    {% if product.percent > 0 %}
-                        <span class="product-percent">-{{ product.percent }}%</span>
-                    {% endif %}
-                </div>
-                <div class="product-content">
-                    <div class="product-description">
-                        {{ product.description }}
-                    </div>
-                    <ul class="product-icon list-inline horizontal-center">
-                        <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a>
-                        <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
-                        <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a>                                                 
-                    </ul>
-                    <span class="product-add-cart">
-                        <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
-                    </span>
-                </div>
+        <div class="template-product-default product">
+            <div class="product-top">
+                <a title="{{ product.name }}" href="{{ product.href }}" class="product-image">
+                    <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                </a>
+                <span class="product-add-cart">
+                    <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
+                </span>
+                <ul class="list-unstyled product-list-icon">
+                    <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                    <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
+                    <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a></li> 
+                </ul>
             </div>
+            <div class="product-bottom">
+                <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
+                <p class="product-price">
+                    {% if not product.special %}
+                        <span class="product-price-new pull-right">{{ product.price }}</span>
+                    {% else %} 
+                        <span class="product-price-new pull-left">{{ product.special }}</span> 
+                        <span class="product-price-old pull-right">{{ product.price }}</span> 
+                    {% endif %}
+                </p>
+                {% if product.percent > 0 %}
+                    <span class="product-percent">-{{ product.percent }}%</span>
+                {% endif %}                                                              
+            </div>
+        </div>
     {% endfor %}
 {% endif %}
