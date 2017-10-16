@@ -2,7 +2,8 @@
     <ul class="horizontal-center">
       {% for category in categories %}
         {% if category.children %}
-          <li class="has-sub"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+          <li>
+            <a title="{{ children.name }}" href="{{ category.href }}">{{ category.name }}
 </a>
               <ul>
                 {% for children in category.children %}
