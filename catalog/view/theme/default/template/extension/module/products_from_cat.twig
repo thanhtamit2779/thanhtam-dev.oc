@@ -7,7 +7,7 @@
         <div class="box template-product-category-default">
             <div class="box-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
                 <h3 class="box-title pull-left">{{ cate_name }}</h3>
-                <ul class="list-inline pull-left list-sub-cats">
+                <ul class="list-inline pull-left list-sub-cats hidden-xs">
                     {% for cate_child in cate_childrens %} 
                             {% if cate_child is empty %} 
                                 {% set continue = true %}
@@ -19,50 +19,51 @@
                 <!--<span class="pull-right"><i class="fa fa-angle-up"></i></span> -->
             </div>
             <div class="box-body col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                <div class="box-image no-padding pull-left">
-                    <a title="{{ cate_name }}" href="{{ cate_link }}" >
-                        <img src="{{ cate_image }}" alt="{{ cate_name }}" title="{{ cate_name }}" class="img-responsive" />
-                    </a>
-                </div>
+                {% if cate_image %}
+                    <div class="box-image no-padding pull-left hidden-xs">
+                        <a title="{{ cate_name }}" href="{{ cate_link }}" >
+                            <img src="{{ cate_image }}" alt="{{ cate_name }}" title="{{ cate_name }}" class="img-responsive" />
+                        </a>
+                    </div>
+                {% endif %}
                 <div class="box-content no-padding pull-right vertical-center">
                     <div class="box-content-slider">
-                        <div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                        <div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="20" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":3}}'>
                             {% if products %}
                                 {% for product in products %}
                                     {% if product.thumb is empty %} 
                                         {% set continue = true %}
                                     {% endif %}
                                     <!-- {{ product.name }}-->
-                                    <div class="template-product-default product">
-                                        <div class="product-mask">
-                                            <a title="{{ product.name }}" href="{{ product.href }}" ><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a>
-                                            <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
-                                            <p class="product-price">
-                                                {% if not product.special %}
-                                                    <span class="product-price-new pull-right">{{ product.price }}</span>
-                                                {% else %} 
-                                                    <span class="product-price-new pull-left">{{ product.special }}</span> 
-                                                    <span class="product-price-old pull-right">{{ product.price }}</span> 
-                                                {% endif %}
-                                            </p>
-                                            {% if product.percent > 0 %}
-                                                <span class="product-percent">-{{ product.percent }}%</span>
-                                            {% endif %}
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-description">
-                                                {{ product.description }}
+                                        <div class="template-product-default product">
+                                            <div class="product-top">
+                                                <a title="{{ product.name }}" href="{{ product.href }}" class="product-image">
+                                                    <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                                </a>
+                                                <span class="product-add-cart">
+                                                    <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
+                                                </span>
+                                                <ul class="list-unstyled product-list-icon">
+                                                    <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                                    <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
+                                                    <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a></li> 
+                                                </ul>
                                             </div>
-                                            <ul class="product-icon list-inline horizontal-center">
-                                                <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                                <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
-                                                <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a>                                                 
-                                            </ul>
-                                            <span class="product-add-cart">
-                                                <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
-                                            </span>
+                                            <div class="product-bottom">
+                                                <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
+                                                <p class="product-price">
+                                                    {% if not product.special %}
+                                                        <span class="product-price-new pull-right">{{ product.price }}</span>
+                                                    {% else %} 
+                                                        <span class="product-price-new pull-left">{{ product.special }}</span> 
+                                                        <span class="product-price-old pull-right">{{ product.price }}</span> 
+                                                    {% endif %}
+                                                </p>
+                                                {% if product.percent > 0 %}
+                                                    <span class="product-percent">-{{ product.percent }}%</span>
+                                                {% endif %}                                                              
+                                            </div>
                                         </div>
-                                    </div>
                                 {% endfor %}
                             {% endif %}  
                         </div>
@@ -72,17 +73,11 @@
         </div>
     </div>       
 </section>
-<script type="text/javascript">
-    var url_product_category = '{{ ajax_load_product }}' + 'index.php?route=ajax/category/getProductCategory' ;
+<script>
     $(document).ready(function() {
+        var url_product_category = '{{ ajax_load_product }}' + 'index.php?route=ajax/category/getProductCategory/' ;
 
-        // SLIDER PRODUCT CAROUSEL
-        // $('#product-as-category-{{ module }} .box-content').multislider({
-        //     duration: 750,
-        //     interval: 3000
-        // });    
-
-        $('#product-as-category-{{ module }} .list-sub-cats li').off('click').on('click', 'a', function(event) {
+        $('#product-as-category-{{ module }} .list-sub-cats li').not('#product-as-category-{{ module }} .list-sub-cats li:last-child').off('click').on('click', 'a', function(event) {
 
             // ACTIVE MENU
             event.preventDefault() ;
@@ -100,13 +95,15 @@
                 dataType    : 'json',
                 data        : { category_id : category_id } 
             }).done(function(response) {
-                $('#product-as-category-{{ module }} .box-content-slider').empty() ;
-                if(response.status == 0) return false;
-                 $('#product-as-category-{{ module }} .box-content-slider').wrapInner('<div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true">');
-                 $('#product-as-category-{{ module }} .box-content-slider .display-product-tab-list').append(response.data);
+                //$('#product-as-category-{{ module }} .box-content-slider').empty() ;
+                
+                //if(response.status == 0) return false;
+                var responsive = '{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":3}}';
+                $('#product-as-category-{{ module }} .box-content-slider').wrapInner('<div class="owl-carousel" data-dots="false" data-nav="true" data-margin="20" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive=' + responsive + '>');
+                $('#product-as-category-{{ module }} .box-content-slider .owl-carousel').append(response.data);
                  
-                 // OWL CAROUSEL
-                $(".owl-carousel").each(function(index, el) {
+                // OWL CAROUSEL
+                $('#product-as-category-{{ module }} .box-content-slider .owl-carousel').each(function(index, el) {
                     var config = $(this).data();
                     config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
                     config.smartSpeed="300";
@@ -121,6 +118,5 @@
             }) ;
 
         }) ;
-
     }) ;
 </script>
