@@ -2,8 +2,8 @@
 	$.fn.stellarNav = function(options, width, breakpoint) {
 
 		var $nav, $width, $breakpoint;
-		nav = $(this);
-		width = $(window).width();
+		var nav = $(this);
+		var width = $(window).width();
 
 		// default settings
 		var settings = $.extend( {
@@ -16,7 +16,8 @@
 			showArrows	: true, // shows dropdown arrows next to the items that have sub menus
 			closeBtn    : false, // adds a close button to the end of nav
 			scrollbarFix: false, // fixes horizontal scrollbar issue on very long navs,
-			text_menu 	: 'Menu'
+			text_menu 	: 'Menu',
+			icon        : 'fa fa-bars'
 		}, options );
 
 		return this.each( function() {
@@ -45,7 +46,8 @@
 			}
 
 			// Tạo nút mở/đóng cho menu 
-			nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><i class="fa fa-bars"></i> ' + settings.text_menu + '</a>');
+			nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><i class="' + settings.icon + '" style="display:block"></i> <i class="fa fa-times" style="display:none"></i> ' + settings.text_menu + '</a>');
+			//nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><i class="' + settings.icon + '"></i> ' + settings.text_menu + '</a>');
 
 			// Tạo nút gọi sao nút đóng/mở menu
 			if (settings.phoneBtn && !(settings.position == 'right' || settings.position == 'left')) {
@@ -81,7 +83,7 @@
 
 			// Vị trí hiển thị menu position: left/right - css
 			if (settings.position == 'left' || settings.position == 'right') {
-				var closeBtn 	= '<a href="#" class="close-menu ' + cssClass + '"><i class="fa fa-close"></i> <span>Close</span></a>';
+				var closeBtn 	= '<a href="#" class="close-menu ' + cssClass + '"><i class="fa fa-close"></i> <span class="hidden">Close</span></a>';
 				var phoneBtn 	= '<a href="tel:'+ settings.phoneBtn +'" class="call-btn-mobile ' + cssClass + '"><i class="fa fa-phone"></i></a>';
 				var locationBtn = '<a href="'+ settings.locationBtn +'" class="location-btn-mobile ' + cssClass + '" target="_blank"><i class="fa fa-map-marker"></i></a>';
 
@@ -113,7 +115,7 @@
 			// Icon butuon đóng được hiển thị
 			if (settings.closeBtn && !(settings.position == 'right' || settings.position == 'left')) {
 				// adds a link to end of nav to close it
-				nav.find('ul:first').append('<li><a href="#" class="close-menu"><i class="fa fa-close"></i> Close Menu</a></li>');
+				nav.find('ul:first').append('<li><a href="#" class="close-menu"><i class="fa fa-close"></i></a></li>');
 			}
 
 			// Không cho scroll x => overflow-x: hidden
@@ -122,7 +124,7 @@
 			}
 
 			// Ẩn/hiện Menu Responsive khi click vào button MENU 			
-			$('.menu-toggle').on('click', function(e) {
+			nav.find('.menu-toggle').on('click', function(e) {
 				// e.stopPropagation() dùng để ngăn nổi bong bóng sự kiện từ một element con lên element ở cấp cao hơn.
 				// Đây cũng là một hàm của event Object. Nó ngăn quá trình nổi bọt của sự kiện trong DOM.
 				// Ví dụ khi gán một sự kiện cho một phần tử. Mặc định các phần tử con của phần tử đó cũng được gán sự kiện. Nhưng khi e.stopPropagation() được gọi trong eventHandler của phần tử con thì nó không bị ảnh hưởng bởi sự kiện của phần tử cha, ông của nó.
@@ -131,8 +133,7 @@
 				// 	Hiệu ứng trượt trái/phải: hiện menu con 
 				if (settings.position == 'left' || settings.position == 'right') {
 
-					// .stop(true, true) Dùng để ngưng một chuyển động hay hiệu ứng trước khi chúng hoàn tất.
-					
+					// .stop(true, true) Dùng để ngưng một chuyển động hay hiệu ứng trước khi chúng hoàn tất.		
 					// .fadeToggle() Display/hide the matched elements by animating their opacity.
 					nav.find('ul:first').stop(true, true).fadeToggle(250);
 
@@ -156,13 +157,13 @@
 				// 	Hiệu ứng xổ xuống: hiện menu con
 				} else {
 					// static position - normal open and close animation
-					nav.find('ul:first').stop(true, true).slideToggle(250);
+					$(this).find('i').fadeToggle();
+					nav.find('ul:first').slideToggle(250);
 				}
 			});
 
 			// Đóng menu khi icon đóng button hiện lên
-			$('.close-menu').click(function() {
-				
+			nav.find('.close-menu').click(function() {
 				nav.removeClass('active');
 
 				if (settings.position == 'left' || settings.position == 'right') {
@@ -175,7 +176,7 @@
 			// Đánh dấu cấp cha của phần tử nào có cấp con
 			nav.find('li a').each(function() {
 				if ($(this).next().length > 0) {
-					$(this).parent('li').addClass('has-sub').append('<a class="dd-toggle" href="#"><i class="fa fa-plus"></i></a>');
+					$(this).parent('li').addClass('has-sub').append('<a class="dd-toggle" href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a>');
 				}
 			});
 
@@ -207,7 +208,7 @@
 			
 			// Kiểm tra kích thước màn hình
 			function windowCheck() {
-				var browserWidth = window.innerWidth;
+				var browserWidth =	window.innerWidth;
 				
 				// Màn hình nhỏ hơn kích thước tự đặt (768px) => Menu responsive
 				if(browserWidth <= breakpoint) {
@@ -237,7 +238,7 @@
 					}
 
 					// hides items that were open on mobile
-					$('li.open').removeClass('open').find('ul:visible').hide();
+					nav.find('li.open').removeClass('open').find('ul:visible').hide();
 
 					resetTriggers();
 					setTriggers();
