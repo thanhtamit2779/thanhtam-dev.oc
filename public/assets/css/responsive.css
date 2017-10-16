@@ -1,11 +1,322 @@
-@media only screen and (max-width:990px){
+@media screen and (max-width:990px){
     
 }
 
-@media only screen and (max-width:479px){
+@media screen and (max-width:479px){
    
 }
 
-@media only screen and (max-width:360px){
-   
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+   /* 
+    * ---------------------------------------------------------------
+    * HEADER 
+    * ---------------------------------------------------------------
+    * 1. HEADER TOP
+    * 2. HEADER BOTTOM
+    * 3. MENU
+    */ 
+        /* 
+        * ---------------------------------------------------------------
+        * 1. HEADER TOP
+        * ---------------------------------------------------------------
+        */
+        .header-top {
+            width: 50%;
+            float: left;
+            min-height: inherit;
+            background-color: rgb(255, 51, 102);
+        }
+
+        .main-menu > li.search {
+            display: block !important;
+            border-bottom: none !important;
+            padding:10px 20px;
+        }
+
+        .main-menu > li.search .btn-default {
+            background: #333 !important;
+        }
+
+        .main-menu > li {
+            border-bottom: 1px dashed #fff;
+        }
+
+        .main-menu > li:last-child {
+            border-bottom: none;
+        }
+
+        .main-menu > li > a , .main-menu button.btn-link, .main-menu li form {
+            margin-left: 20px;
+            color: rgba(255, 255, 255, 1);
+            font-size: 14px;
+            font-weight: 700;
+            box-sizing: content-box;
+            text-transform: uppercase;
+        }
+
+        .main-menu form strong{
+            min-width: 20px;
+            margin-right: 10px;
+        }
+
+        .main-menu form img {
+            margin-right: 6px;
+        }
+
+        .main-menu form i {
+            position: fixed;
+            right: 10px;
+        }
+
+        .main-menu form .btn-group, .main-menu form ul.dropdown-menu{
+            width: 100%;
+        }
+
+        .main-menu form ul.dropdown-menu button {
+            margin-left: 0px !important;
+        }
+
+        .main-menu > li > a > i {
+            min-width: 20px;
+        }
+
+        .fixed-nav { 
+            display: none
+        }
+
+        .main-menu li {
+            display: block;
+            z-index: 99999;
+            text-align: left;
+        }
+
+        .header-top .full {
+            width: 100%;
+        }
+
+        .header-top .mobile .menu-toggle {
+            padding: 9px 10px !important;
+            box-sizing: border-box;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 1);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .header-top .mobile .menu-toggle i { 
+            position: absolute;
+            right: 15px;
+        }
+
+        .header-top .mobile .close-menu{ 
+            display: inline-block; 
+            text-align: right; 
+            padding: 7px 10px;
+            box-sizing: border-box;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 1);
+            font-size: 18px;
+        }
+
+        /* 
+        * ---------------------------------------------------------------
+        * 2. HEADER BOTTOM
+        * ---------------------------------------------------------------
+        */
+
+        .header-bottom {
+            display: none;
+        }
+
+        /* 
+        * ---------------------------------------------------------------
+        * 3. MENU CATEGORY
+        * ---------------------------------------------------------------
+        */
+        #menu {
+            width: 50%;
+            float: left;
+            min-height: inherit;
+            background:#112530;
+        }
+
+        #menu .mobile .menu-toggle {
+            padding: 9px 10px !important;
+        }
+
+        #menu .mobile > ul, .header-top .mobile > ul {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 1);
+            width: 100%;
+            z-index: 99999;
+            max-width: 100%;
+            background: rgba(255, 51, 102, .8);
+            padding: 0;
+            margin: 0;
+            overflow-y: scroll;
+        }
+        
+    /* 
+    * ---------------------------------------------------------------
+    * BANNER
+    * ---------------------------------------------------------------
+    */
+   .banner-main .custom-banner { 
+        min-height: 0px !important;
+    }    
+
+    .banner-main .col-xs-4 {
+        padding:5px;
+    }
+
+    /* 
+    * ---------------------------------------------------------------
+    * MAIN
+    * ---------------------------------------------------------------
+    * 1. TABS PRODUCTS
+    * 2. TABS PRODUCT CATEGORY
+    * 3. TEMPLATE PRODUCT
+    * 4. PAGE PRODUCT CATGORY
+    * 5. MODULE 
+    * 6. PAGE PRODUCT
+    */
+        /* 
+        * ---------------------------------------------------------------
+        * 1. TABS PRODUCTS
+        * ---------------------------------------------------------------
+        */
+        .display-product-tab-list .owl-prev {
+            left:inherit !important;
+            right: 26px !important;
+        }
+
+        /* 
+        * ---------------------------------------------------------------
+        * 2. TABS PRODUCT CATEGORY
+        * ---------------------------------------------------------------
+        */
+        .product-as-category .box-image { 
+            clear: both;
+            display: none;
+        }
+
+        .product-as-category .box-content { 
+            clear: both;
+            width: 100%;
+        }
+
+        /* 
+        * ---------------------------------------------------------------
+        * 6. PAGE PRODUCTS
+        * ---------------------------------------------------------------
+        */
+        #content .product-left {
+            -webkit-order: 1;
+            -o-order: 1;
+            -moz-order: 1;
+            order: 1;
+        }
+
+        #content .product-right {
+            -webkit-order: 0;
+            -o-order: 0;
+            -moz-order: 0;
+            order: 0;
+        }
+}
+
+@media screen and (max-width: 320px) {
+    /* 
+    * ---------------------------------------------------------------
+    * BANNER
+    * ---------------------------------------------------------------
+    */
+    .banner-main {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    /* 
+    * ---------------------------------------------------------------
+    * MAIN
+    * ---------------------------------------------------------------
+    * 1. TABS PRODUCTS
+    * 2. TABS PRODUCT CATEGORY
+    * 3. TEMPLATE PRODUCT
+    * 4. PAGE PRODUCT CATGORY
+    * 5. MODULE 
+    * 6. PAGE PRODUCT
+    */
+        /* 
+        * ---------------------------------------------------------------
+        * 2. TABS PRODUCT CATEGORY
+        * ---------------------------------------------------------------
+        */
+        .template-product-category-default .box-heading {
+            border-bottom: 2px solid #eaeaea;
+            white-space: nowrap; 
+        }
+
+        .template-product-category-default h3.box-title {
+            padding: 0px;
+            background: none;
+            border-bottom: 2px solid #ff3366 ;
+            margin-bottom: -2px;
+            display: block;
+            text-align: left;
+            padding: 6px 0px;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #333;
+            font-weight: bold;
+        }
+
+    /* 
+    * ---------------------------------------------------------------
+    * FOOTER
+    * ---------------------------------------------------------------
+    */    
+}
+
+@media screen and (max-width: 375px) {
+    /* 
+    * ---------------------------------------------------------------
+    * MAIN
+    * ---------------------------------------------------------------
+    * 1. TABS PRODUCTS
+    * 2. TABS PRODUCT CATEGORY
+    * 3. TEMPLATE PRODUCT
+    * 4. PAGE PRODUCT CATGORY
+    * 5. MODULE 
+    * 6. PAGE PRODUCT
+    */
+
+        /* 
+        * ---------------------------------------------------------------
+        * 6. PAGE PRODUCTS
+        * ---------------------------------------------------------------
+        */
+        #button-cart, #button-wishlist, #button-compare {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+    /* 
+    * ---------------------------------------------------------------
+    * FOOTER
+    * ---------------------------------------------------------------
+    */    
 }

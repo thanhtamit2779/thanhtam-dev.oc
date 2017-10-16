@@ -3,7 +3,9 @@
 $_['text_home']          = 'Home';
 $_['text_wishlist']      = 'Wish List (%s)';
 $_['text_shopping_cart'] = 'Shopping Cart';
+$_['text_all_category']      = 'All Categories';
 $_['text_category']      = 'Categories';
+$_['text_hidden_category']  = 'Hidden Categories';
 $_['text_account']       = 'My Account';
 $_['text_register']      = 'Register';
 $_['text_login']         = 'Login';
@@ -19,28 +21,45 @@ $_['text_contact_us']   = 'Contact Us';
 // MENU TOP LINK
 $_['text_menu']     = array(
     array(
+        'status'   => 'show',
         'link' => '/',
-        'icon' => '',
+        'icon' => 'fa fa-home',
         'name' => 'home'
     ),
     array(
+        'status'   => 'show',
         'link' => '/gioi-thieu',
-        'icon' => '',
+        'icon' => 'fa fa-info',
         'name' => 'about'
     ),
     array(
+        'status'   => 'show',
         'link' => '/lien-he',
-        'icon' => '',
+        'icon' => 'fa fa-envelope-o',
         'name' => 'contact us'
     ),
     array(
-        'link' => '/tin-tuc',
-        'icon' => '',
-        'name' => 'news'
+        'status'   => 'show',
+        'link' => '/tai-khoan',
+        'icon' => 'fa fa-user-o',
+        'name' => 'account'
     ),
     array(
-        'link' => '/san-pham',
-        'icon' => '',
-        'name' => 'product'
+        'status'   => 'show',
+        'link' => '/thanh-toan',
+        'icon' => 'fa fa-money',
+        'name' => 'checkout'
     ),
+    array(
+        'status'   => 'show',
+        'link' => '/gio-hang',
+        'icon' => 'fa fa-shopping-cart',
+        'name' => 'shopping cart'
+    ),
+    array(
+        'status'   => 'show',
+        'link' => '/san-pham-yeu-thich',
+        'icon' => 'fa fa-heart-o',
+        'name' => 'Wish List'
+    )
 ) ;
