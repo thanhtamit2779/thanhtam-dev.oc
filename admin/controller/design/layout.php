@@ -341,7 +341,7 @@ class ControllerDesignLayout extends Controller {
 					'code' => $code . '.' .  $module['module_id']
 				);
 			}
-
+	
 			if ($this->config->has('module_' . $code . '_status') || $module_data) {
 				$data['extensions'][] = array(
 					'name'   => strip_tags($this->language->get('extension')->get('heading_title')),
@@ -390,7 +390,7 @@ class ControllerDesignLayout extends Controller {
 				}				
 			}
 		}		
-		
+	
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
