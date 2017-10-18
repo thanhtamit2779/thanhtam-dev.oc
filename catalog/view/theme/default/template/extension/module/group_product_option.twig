@@ -19,7 +19,7 @@
                     <div class="tab-content">
                         {% for id, group_product in group_products %}
                             <div role="tabpanel" class="tab-pane fade" id="{{ id }}">
-                                <div class="display-product-tab-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="20" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":4}}'>
+                                <div class="display-product-tab-list owl-carousel" data-margin="20" data-responsive='{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":4}}'>
                                     {% for product in group_product.products %}
                                         <!-- {{ product.name }}-->
                                         <div class="template-product-default product">

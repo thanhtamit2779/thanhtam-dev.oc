@@ -5,9 +5,6 @@ class ControllerExtensionModuleGroupProductOption extends Controller {
 
 		$this->load->model('catalog/product');		
 		$this->load->model('tool/image');
-
-		$this->document->addStyle('public/plugins/slick/slick.css');
-		$this->document->addScript('public/plugins/slick/slick.min.js', 'footer');
 		$data = array();
 
 		$group_products = $setting['group_product'];
