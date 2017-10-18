@@ -26,7 +26,7 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 			if ($category_info) {
 
 				if ($category_info['image']) {
-					$thumb = $this->model_tool_image->resize($category_info['image'], 270 , 270);
+					$thumb = $this->model_tool_image->resize($category_info['image'], $this->config->get('image_resize_width_avatar_category') , $this->config->get('image_resize_height_avatar_category'));
 				} else {
 					$thumb = '';
 				}

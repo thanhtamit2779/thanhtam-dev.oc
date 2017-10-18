@@ -2,7 +2,7 @@
 {% set cate_image  = categories.parent.thumb %}
 {% set cate_link   = categories.parent.href %}
 {% set cate_childrens   = categories.children %}
-<section class="product-as-category" id="product-as-category-{{ module }}">
+<section class="product-as-category clearfix clr" id="product-as-category-{{ module }}">
     <div class="container">
         <div class="box template-product-category-default">
             <div class="box-heading col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
@@ -22,48 +22,47 @@
                 {% if cate_image %}
                     <div class="box-image no-padding pull-left hidden-xs">
                         <a title="{{ cate_name }}" href="{{ cate_link }}" >
-                            <img src="{{ cate_image }}" alt="{{ cate_name }}" title="{{ cate_name }}" class="img-responsive" />
+                            <img src="{{ cate_image }}" alt="{{ cate_name }}" title="{{ cate_name }}" />
                         </a>
                     </div>
                 {% endif %}
-                <div class="box-content no-padding pull-right vertical-center">
+                <div class="box-content no-padding pull-right v ertical-center">
                     <div class="box-content-slider">
-                        <div class="owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="20" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":3}}'>
+                        <div class="owl-carousel owl-carousel-{{ module }}" data-responsive='{"0":{"items":1},"360":{"items":2},"640":{"items":3},"768":{"items":3}}' data-margin="20">
                             {% if products %}
                                 {% for product in products %}
                                     {% if product.thumb is empty %} 
                                         {% set continue = true %}
                                     {% endif %}
-                                    <!-- {{ product.name }}-->
-                                        <div class="template-product-default product">
-                                            <div class="product-top">
-                                                <a title="{{ product.name }}" href="{{ product.href }}" class="product-image">
-                                                    <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
-                                                </a>
-                                                <span class="product-add-cart">
-                                                    <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
-                                                </span>
-                                                <ul class="list-unstyled product-list-icon">
-                                                    <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a></li>
-                                                    <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a></li> 
-                                                </ul>
-                                            </div>
-                                            <div class="product-bottom">
-                                                <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
-                                                <p class="product-price">
-                                                    {% if not product.special %}
-                                                        <span class="product-price-new pull-right">{{ product.price }}</span>
-                                                    {% else %} 
-                                                        <span class="product-price-new pull-left">{{ product.special }}</span> 
-                                                        <span class="product-price-old pull-right">{{ product.price }}</span> 
-                                                    {% endif %}
-                                                </p>
-                                                {% if product.percent > 0 %}
-                                                    <span class="product-percent">-{{ product.percent }}%</span>
-                                                {% endif %}                                                              
-                                            </div>
+                                    <div class="template-product-default product">
+                                        <div class="product-top">
+                                            <a title="{{ product.name }}" href="{{ product.href }}" class="product-image">
+                                                <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                                            </a>
+                                            <span class="product-add-cart">
+                                                <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="">{{ button_cart }}</span></a>
+                                            </span>
+                                            <ul class="list-unstyled product-list-icon">
+                                                <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                                <li><a title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></a></li>
+                                                <li><a title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></a></li> 
+                                            </ul>
                                         </div>
+                                        <div class="product-bottom">
+                                            <p class="product-name"><a title="{{ product.name }}" href="{{ product.href }}" >{{ product.name }}</a></p>
+                                            <p class="product-price">
+                                                {% if not product.special %}
+                                                    <span class="product-price-new pull-right">{{ product.price }}</span>
+                                                {% else %} 
+                                                    <span class="product-price-new pull-left">{{ product.special }}</span> 
+                                                    <span class="product-price-old pull-right">{{ product.price }}</span> 
+                                                {% endif %}
+                                            </p>
+                                            {% if product.percent > 0 %}
+                                                <span class="product-percent">-{{ product.percent }}%</span>
+                                            {% endif %}                                                              
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             {% endif %}  
                         </div>
@@ -73,12 +72,12 @@
         </div>
     </div>       
 </section>
-<script>
+<script type="text/javascript">
+    var url_product_category = '{{ ajax_load_product }}' + 'index.php?route=ajax/category/getProductCategory/' ;
     $(document).ready(function() {
-        var url_product_category = '{{ ajax_load_product }}' + 'index.php?route=ajax/category/getProductCategory/' ;
 
         $('#product-as-category-{{ module }} .list-sub-cats li').not('#product-as-category-{{ module }} .list-sub-cats li:last-child').off('click').on('click', 'a', function(event) {
-
+            
             // ACTIVE MENU
             event.preventDefault() ;
             $(this).parent().siblings().removeClass('active');
@@ -104,9 +103,15 @@
                  
                 // OWL CAROUSEL
                 $('#product-as-category-{{ module }} .box-content-slider .owl-carousel').each(function(index, el) {
-                    var config = $(this).data();
-                    config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
-                    config.smartSpeed="300";
+                    var config          = $(this).data();
+                    config.navText      = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
+                    config.smartSpeed   = "300";
+                    config.nav          = true;
+                    config.dots         = false;
+                    config.autoplay     = true;
+                    config.autoplayTimeout = 3000;
+                    config.autoplayHoverPause = true;
+                    config.loop         = true;
                     if($(this).hasClass('owl-style2')){
                     config.animateOut="fadeOut";
                     config.animateIn="fadeIn";    
