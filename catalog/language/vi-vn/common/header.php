@@ -12,8 +12,8 @@ $_['text_logged']   = 'Bạn đăng nhập với tên <a href="%s">%s</a> <b>(</
 $_['text_account']  = 'Tài khoản';
 
 $_['text_category']           = 'Danh mục';
-$_['text_all_category']      = 'Danh mục';
-$_['text_hidden_category']   = 'Ẩn danh mục';
+$_['text_all_category']      = 'Tất cả ngành hàng';
+$_['text_hidden_category']   = 'Ẩn ngành hàng';
 $_['text_account']       = 'Tài khoản';
 $_['text_register']      = 'Đăng ký';
 $_['text_login']         = 'Đăng nhập';
@@ -31,50 +31,44 @@ $_['text_contact_us']   = 'Liên hệ';
 $_['text_menu']     = array(
     array(
         'status'   => 'show',
-        'link' => '',
+        'link' => '/',
         'icon' => 'fa fa-home',
         'name' => 'trang chủ'
     ),
     array(
         'status'   => 'show',
-        'link' => 'gioi-thieu',
+        'link' => '/gioi-thieu',
         'icon' => 'fa fa-info',
         'name' => 'giới thiệu'
     ),
     array(
         'status'   => 'show',
-        'link' => 'lien-he',
+        'link' => '/lien-he',
         'icon' => 'fa fa-envelope-o',
         'name' => 'liên hệ'
     ),
     array(
         'status'   => 'show',
-        'link' => 'tai-khoan',
+        'link' => '/tai-khoan',
         'icon' => 'fa fa-user-o',
         'name' => 'tài khoản'
     ),
     array(
         'status'   => 'show',
-        'link' => 'thanh-toan',
+        'link' => '/thanh-toan',
         'icon' => 'fa fa-money',
         'name' => 'thanh toán'
     ),
     array(
         'status'   => 'show',
-        'link' => 'gio-hang',
+        'link' => '/gio-hang',
         'icon' => 'fa fa-shopping-cart',
         'name' => 'giỏ hàng'
     ),
     array(
         'status'   => 'show',
-        'link' => 'san-pham-yeu-thich',
+        'link' => '/san-pham-yeu-thich',
         'icon' => 'fa fa-heart-o',
         'name' => 'yêu thích'
-    ),
-    array(
-        'status'   => 'show',
-        'link' => 'khuyen-mai',
-        'icon' => 'fa fa-gift',
-        'name' => 'khuyến mãi'
-    ),
+    )
 ) ;
