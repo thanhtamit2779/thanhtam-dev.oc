@@ -5,6 +5,10 @@
           {% if key == 2  %}
             {% set break = true %}
           {% endif %}
+
+          {% if banner.image is empty %}
+            {% set continue = true %}
+          {% endif %}
           <div class="col-md-4 col-sm-6 col-xs-4">
             <div class="custom-banner box-{{ module }} vertical-center">
                 <img alt="{{ banner.title }}" class="img-responsive banner-image" src="{{ banner.image }}" />
@@ -22,6 +26,9 @@
       {% elseif position == 'column_left' or position == 'column_right' %}
             <div class="box-{{ module }} vertical-center owl-carousel" data-loop="true" data-nav="false" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-items="1" data-autoplay="true">
                 {% for banner in banners %}
+                    {% if banner.image is empty %}
+                      {% set continue = true %}
+                    {% endif %}
                     <a href="{{ banner.link }}" title="{{ banner.title }}"><img alt="{{ banner.title }}" class="img-responsive" src="{{ banner.image }}" /></a>  
                 {% endfor %}
             </div>

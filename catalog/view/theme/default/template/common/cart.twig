@@ -28,17 +28,8 @@
               {% endfor %}   
           </ul>
       </li>
-      <li class="cart-info-total">
-          <ul class="list-unstyled">
-            {% for total in totals %}
-                <li>
-                    <strong class="pull-left">{{ total.title }}</strong>
-                    <strong class="pull-right">{{ total.text }}</strong>
-                </li>
-            {% endfor %}
-          </ul>  
-      </li>
-      <li class="cart-info-checkout"></li>
+      <li class="cart-info-checkout"><a href="/thanh-toan" class="btn btn-default pull-right">{{ text_checkout }}</a>
+</a></li>
   </ul>
 {% else %}
   <ul class="cart-info hidden-xs">
