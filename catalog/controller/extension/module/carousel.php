@@ -6,9 +6,9 @@ class ControllerExtensionModuleCarousel extends Controller {
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 		
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
-		$this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
-		$this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js', 'footer');
+		// $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
+		// $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
+		// $this->document->addScript('catalog/view/javascript/jquery/swiper/js/swiper.jquery.js', 'footer');
 
 		$data['banners'] = array();
 
