@@ -1,25 +1,4 @@
 $(document).ready(function() {
-    // OWL CAROUSEL
-    $(".owl-carousel").each(function(index, el) {
-        var config = $(this).data();
-        config.navText = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
-        config.smartSpeed="300";
-        if($(this).hasClass('owl-style2')){
-          config.animateOut="fadeOut";
-          config.animateIn="fadeIn";    
-        }
-        $(this).owlCarousel(config);
-    });
-
-    // OWL CAROUSEL VERTICAL
-    $(".owl-carousel-vertical").each(function(index, el) {
-        var config   = $(this).data();
-        config.navText = ['<span class="icon-up"></spam>','<span class="icon-down"></span>'];
-        config.smartSpeed="900";
-        config.animateOut="";
-        config.animateIn="fadeInUp";
-        $(this).owlCarousel(config);
-    });
 
 	// SCROLL TO TOP
 	$('html, body').scroll(function () {
@@ -58,5 +37,35 @@ $(document).ready(function() {
     $('#icon-category').click(function() { 
         $('.icon-show-category').slideToggle('fast');
         $('#menu').slideToggle('fast');
-	});
+    });
+    
+    // OWL CAROUSEL
+    $(".owl-carousel").each(function(index, el) {
+        var config          = $(this).data();
+        config.navText      = ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'];
+        config.smartSpeed   = "300";
+        config.nav          = true;
+        config.dots         = false;
+        config.autoplay     = true;
+        config.autoplayTimeout = 3000;
+        config.autoplayHoverPause = true;
+        config.loop         = true;
+        if($(this).hasClass('owl-style2')){
+          config.animateOut="fadeOut";
+          config.animateIn="fadeIn";    
+        }
+        $(this).owlCarousel(config);
+    });
+
+    // OWL CAROUSEL VERTICAL
+    $(".owl-carousel-vertical").each(function(index, el) {
+        var config   = $(this).data();
+        config.navText = ['<span class="icon-up"></span>','<span class="icon-down"></span>'];
+        config.smartSpeed="300";
+        config.animateOut="";
+        config.animateIn="fadeInUp";
+        $(this).owlCarousel(config);
+    });
+
+    $(".owl-nav").removeClass('disabled');
 });

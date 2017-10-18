@@ -29,8 +29,8 @@
       {% endif %}
 
       {% if products %}
-      <div class="row no-padding no-margin">
-        <div class="limit-display-products pull-right">
+      <div class="row">
+        <div class="limit-display-products col-sm-4 col-md-4 col-xs-12 col-md-offset-4 col-sm-offset-4">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon metro" for="input-limit">{{ text_limit }}</label>
             <select id="input-limit" class="form-control metro" onchange="location = this.value;">
@@ -44,7 +44,7 @@
             </select>
           </div>
         </div>
-         <div class="number-display-products pull-right">
+         <div class="number-display-products col-sm-4 col-md-4 col-xs-6">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon metro" for="input-sort">{{ text_sort }}</label>
             <select id="input-sort" class="form-control metro" onchange="location = this.value;">
@@ -83,7 +83,7 @@
           <div class="content row clr"> 
             {% for product in products %}
                 <!-- {{ product.name }}-->
-                <div class="col-xs-6 col-sm-4 col-md-4">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                    <!-- {{ product.name }}-->
                   <div class="template-product-default product">
                       <div class="product-top">
@@ -91,7 +91,7 @@
                               <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
                           </a>
                           <span class="product-add-cart">
-                              <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></a>
+                              <a onclick="cart.add('{{ product.product_id }}');"><i class="fa fa-shopping-cart"></i> <span class="">{{ button_cart }}</span></a>
                           </span>
                           <ul class="list-unstyled product-list-icon">
                               <li><a title="{{ product.name }}"  href="{{ product.href }}"><i class="fa fa-link" aria-hidden="true"></i></a></li>
@@ -121,14 +121,14 @@
         </div>
       </div>
       <div class="row no-padding no-margin">
-        <div class="col-sm-6 col-xs-12 text-left no-padding"><p class="result-pagination">{{ results }}</p></div>
-        <div class="col-sm-6 hidden-xs text-right no-padding">{{ pagination }}</div>
+        <div class="col-sm-6 col-xs-12 text-left no-padding hidden-xs"><p class="result-pagination">{{ results }}</p></div>
+        <div class="col-sm-6 col-xs-12 text-right no-padding">{{ pagination }}</div>
       </div>
       {% endif %}
       {% if not categories and not products %}
       <p>{{ text_empty }}</p>
       <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+        <div class="pull-right"><a href="{{ continue }}" class="btn metro btn-default">{{ button_continue }}</a></div>
       </div>
       {% endif %}
       {{ content_bottom }}</div>

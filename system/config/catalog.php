@@ -76,9 +76,9 @@ $_['image_resize_width_product_tab'] 		= 270;
 $_['image_resize_height_product_tab'] 		= 270;
 
 // CHIỀU RỘNG ẢNH ĐẠI DIỆN CHO CATEGORY
-$_['image_resize_width_avatar_category'] 	= 270;
+$_['image_resize_width_avatar_category'] 	= 285;
 // CHIỀU CAO ẢNH ĐẠI DIỆN CHO CATEGORY
-$_['image_resize_height_avatar_category'] 	= 270;
+$_['image_resize_height_avatar_category'] 	= 350;
 
 // CHIỀU RỘNG CHO SLIDER CATEGORY
 $_['image_resize_width_slider_category'] 	= 870;

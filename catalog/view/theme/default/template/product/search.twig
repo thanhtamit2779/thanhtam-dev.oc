@@ -15,8 +15,8 @@
     {% endif %}
     <div id="content" class="{{ class }}">{{ content_top }}
       {% if products %}
-      <div class="row no-padding no-margin">
-        <div class="limit-display-products pull-right">
+      <div class="row">
+        <div class="limit-display-products col-sm-4 col-md-4 col-xs-6 col-md-offset-4 col-sm-offset-4">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon metro" for="input-limit">{{ text_limit }}</label>
             <select id="input-limit" class="form-control metro" onchange="location = this.value;">
@@ -30,7 +30,7 @@
             </select>
           </div>
         </div>
-         <div class="number-display-products pull-right">
+         <div class="number-display-products col-sm-4 col-md-4 col-xs-6">
           <div class="form-group input-group input-group-sm">
             <label class="input-group-addon metro" for="input-sort">{{ text_sort }}</label>
             <select id="input-sort" class="form-control metro" onchange="location = this.value;">          
