@@ -1,3 +1,3 @@
-<?php 
-$_['text_logo_brand'] = 'Top Brand';
+<?php 
+$_['text_logo_brand'] = 'Top Brand';
 ?>

@@ -22,44 +22,50 @@ $_['text_contact_us']   = 'Contact Us';
 $_['text_menu']     = array(
     array(
         'status'   => 'show',
-        'link' => '/',
+        'link' => '',
         'icon' => 'fa fa-home',
         'name' => 'home'
     ),
     array(
         'status'   => 'show',
-        'link' => '/gioi-thieu',
+        'link' => 'gioi-thieu',
         'icon' => 'fa fa-info',
         'name' => 'about'
     ),
     array(
         'status'   => 'show',
-        'link' => '/lien-he',
+        'link' => 'lien-he',
         'icon' => 'fa fa-envelope-o',
         'name' => 'contact us'
     ),
     array(
         'status'   => 'show',
-        'link' => '/tai-khoan',
+        'link' => 'tai-khoan',
         'icon' => 'fa fa-user-o',
         'name' => 'account'
     ),
     array(
         'status'   => 'show',
-        'link' => '/thanh-toan',
+        'link' => 'thanh-toan',
         'icon' => 'fa fa-money',
         'name' => 'checkout'
     ),
     array(
         'status'   => 'show',
-        'link' => '/gio-hang',
+        'link' => 'gio-hang',
         'icon' => 'fa fa-shopping-cart',
         'name' => 'shopping cart'
     ),
     array(
         'status'   => 'show',
-        'link' => '/san-pham-yeu-thich',
+        'link' => 'san-pham-yeu-thich',
         'icon' => 'fa fa-heart-o',
         'name' => 'Wish List'
-    )
+    ),
+    array( 
+        'status'   => 'show', 
+        'link' => 'special', 
+        'icon' => 'fa fa-gift', 
+        'name' => 'special' 
+    ), 
 ) ;

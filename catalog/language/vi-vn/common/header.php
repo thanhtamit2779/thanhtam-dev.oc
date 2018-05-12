@@ -12,7 +12,7 @@ $_['text_logged']   = 'Bạn đăng nhập với tên <a href="%s">%s</a> <b>(</
 $_['text_account']  = 'Tài khoản';
 
 $_['text_category']           = 'Danh mục';
-$_['text_all_category']      = 'Tất cả ngành hàng';
+$_['text_all_category']      = 'Danh mục';
 $_['text_hidden_category']   = 'Ẩn ngành hàng';
 $_['text_account']       = 'Tài khoản';
 $_['text_register']      = 'Đăng ký';
@@ -70,5 +70,11 @@ $_['text_menu']     = array(
         'link' => '/san-pham-yeu-thich',
         'icon' => 'fa fa-heart-o',
         'name' => 'yêu thích'
-    )
+    ), 
+    array( 
+        'status'   => 'show', 
+        'link' => 'khuyen-mai', 
+        'icon' => 'fa fa-gift', 
+        'name' => 'khuyến mãi' 
+    ), 
 ) ;

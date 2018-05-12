@@ -1,18 +1,18 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/thanhtam-dev.oc/admin/');
-define('HTTP_CATALOG', 'http://localhost/thanhtam-dev.oc/');
+define('HTTP_SERVER', 'http://localhost/my-web/opencart.3020/admin/');
+define('HTTP_CATALOG', 'http://localhost/my-web/opencart.3020/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/thanhtam-dev.oc/admin/');
-define('HTTPS_CATALOG', 'http://localhost/thanhtam-dev.oc/');
+define('HTTPS_SERVER', 'http://localhost/my-web/opencart.3020/admin/');
+define('HTTPS_CATALOG', 'http://localhost/my-web/opencart.3020/');
 
 // DIR
-define('DIR_APPLICATION', 'C:/xampp/htdocs/thanhtam-dev.oc/admin/');
-define('DIR_SYSTEM', 'C:/xampp/htdocs/thanhtam-dev.oc/system/');
-define('DIR_IMAGE', 'C:/xampp/htdocs/thanhtam-dev.oc/image/');
+define('DIR_APPLICATION', 'C:\xampp\htdocs\my-web\opencart.3020/admin/');
+define('DIR_SYSTEM', 'C:\xampp\htdocs\my-web\opencart.3020/system/');
+define('DIR_IMAGE', 'C:\xampp\htdocs\my-web\opencart.3020/image/');
 define('DIR_STORAGE', DIR_SYSTEM . 'storage/');
-define('DIR_CATALOG', 'C:/xampp/htdocs/thanhtam-dev.oc/catalog/');
+define('DIR_CATALOG', 'C:\xampp\htdocs\my-web\opencart.3020/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/template/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -28,7 +28,7 @@ define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', '_thanhtam-dev.oc');
+define('DB_DATABASE', '_opencart.3020');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 

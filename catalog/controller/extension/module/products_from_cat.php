@@ -10,8 +10,6 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 		$this->load->model('tool/image');		
 		$this->load->model('extension/module/products_from_cat');
 
-		//$this->document->addScript('public/plugins/slider/multislider/multislider.min.js', 'footer');
-
 		$limit = html_entity_decode($setting['limit']);
 		
 		$link = html_entity_decode($setting['link']);
@@ -19,10 +17,12 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 		$data = array() ;
 
 		// Category
+		//die() ;
 		if(!empty($setting['categories'])) {
 			$category_id   = $setting['categories'][0];		
 			$category_info = $this->model_catalog_category->getCategory($category_id);
 
+			//echo '<pre>' ; print_r($category_info) ; echo '</pre>' ;
 			if ($category_info) {
 
 				if ($category_info['image']) {
@@ -126,7 +126,6 @@ class ControllerExtensionModuleProductsFromCat extends Controller {
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
 		}
-
 		$data['ajax_load_product'] = HTTPS_SERVER;
 		$data['module'] = $module++;
 		return $this->load->view('extension/module/products_from_cat', $data);
